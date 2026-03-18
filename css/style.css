@@ -34,7 +34,8 @@ body {
 /* ===== HEADER ===== */
 header {
     background: var(--dark);
-    padding: 1rem 0;
+    padding: 1.5rem 0;
+    /* Increased from 1rem to 1.5rem */
     position: sticky;
     top: 0;
     z-index: 100;
@@ -48,7 +49,8 @@ nav {
 }
 
 .logo img {
-    height: 50px;
+    height: 70px;
+    /* Increased from 50px to 70px */
     width: auto;
     display: block;
 }
@@ -132,19 +134,8 @@ nav {
     max-width: 400px;
     width: 100%;
     height: auto;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
-}
-
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
+    filter: drop-shadow(0 0 20px rgba(0, 180, 216, 0.5));
+    /* animation removed for static logo */
 }
 
 .hero-buttons {
@@ -425,6 +416,16 @@ footer .social a:hover {
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
+    header {
+        padding: 1rem 0;
+        /* Back to original on mobile */
+    }
+
+    .logo img {
+        height: 50px;
+        /* Smaller logo for mobile */
+    }
+
     .hero-grid {
         grid-template-columns: 1fr;
         text-align: center;
@@ -445,10 +446,6 @@ footer .social a:hover {
     nav {
         flex-direction: column;
         gap: 1rem;
-    }
-
-    .logo img {
-        height: 40px;
     }
 }
 
