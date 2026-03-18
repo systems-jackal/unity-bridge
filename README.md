@@ -27,4 +27,4 @@ To view the website locally:
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/yourusername/unitybridge-website.git
+   git clone https://github.com/yourusername/unitybridge
