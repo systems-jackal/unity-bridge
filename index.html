@@ -5,186 +5,431 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unity Bridge – Secure IT for Small Business</title>
-
-    <!-- SEO Meta Tags -->
     <meta name="description"
         content="Unity Bridge provides affordable, secure IT infrastructure, networking, and software for small businesses. Founded by security specialists.">
     <meta property="og:title" content="Unity Bridge">
     <meta property="og:description" content="Your bridge to secure connectivity – IT solutions built on trust.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://systems-jackal.github.io/unity-bridge/">
-    <meta property="og:image" content="https://systems-jackal.github.io/unity-bridge/images/logo.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.png">
+    <meta property="og:image" content="images/logo.png">
+    <link rel="icon" type="image/png" href="images/favicon.png">
     <link rel="apple-touch-icon" href="images/favicon.png">
-
-    <!-- Fonts & Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <header>
+
+    <!-- ══ CUSTOM CURSOR ══ -->
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+
+    <!-- ══ NAVIGATION ══ -->
+    <header id="navbar">
         <nav class="container">
-            <div class="logo">
-                <img src="images/logo.png" alt="Unity Bridge">
-            </div>
-            <ul class="nav-links">
+            <a href="#home" class="nav-logo">
+                <img src="images/logo.png" alt="Unity Bridge Logo">
+                <span>Unity Bridge</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#team">Team</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            <a href="#contact" class="btn btn-nav">Get Started</a>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
         </nav>
     </header>
 
     <main>
-        <!-- Hero Section -->
+
+        <!-- ══ HERO ══ -->
         <section id="home" class="hero">
+            <canvas id="heroCanvas"></canvas>
+            <div class="hero-glow"></div>
             <div class="container hero-grid">
-                <div class="hero-content">
-                    <h1>Secure. Connect. Innovate.</h1>
-                    <p class="slogan">Bridging trust and technology – <span>Your bridge to secure connectivity</span>
+                <div class="hero-content" data-reveal>
+                    <div class="hero-tag">
+                        <i class="fas fa-shield-halved"></i>
+                        Security-First Technology
+                    </div>
+                    <h1>
+                        Secure.<br>
+                        <span class="text-cyan">Connect.</span><br>
+                        Innovate.
+                    </h1>
+                    <p class="hero-sub">
+                        Bridging trust and technology for small businesses and communities.
+                        Affordable, enterprise-grade IT infrastructure — without the enterprise price tag.
                     </p>
-                    <p>Affordable, secure IT infrastructure for small businesses and communities. We’re just getting
-                        started – and we’re ready to help you.</p>
                     <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary">Get in touch</a>
-                        <a href="#services" class="btn btn-outline">See services</a>
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-arrow-right"></i> Get in Touch
+                        </a>
+                        <a href="#services" class="btn btn-outline">
+                            Explore Services
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-num">100%</span>
+                            <span class="stat-label">Security-First</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat">
+                            <span class="stat-num">3</span>
+                            <span class="stat-label">Expert Specialists</span>
+                        </div>
+                        <div class="stat-divider"></div>
+                        <div class="stat">
+                            <span class="stat-num">SMB</span>
+                            <span class="stat-label">Focused</span>
+                        </div>
                     </div>
                 </div>
-                <div class="hero-image">
-                    <img src="images/logo.png" alt="Unity Bridge Logo" class="hero-logo">
+                <div class="hero-visual" data-reveal data-delay="200">
+                    <div class="orbit-ring ring-1"></div>
+                    <div class="orbit-ring ring-2"></div>
+                    <div class="orbit-ring ring-3"></div>
+                    <div class="logo-glow-wrap">
+                        <img src="images/logo.png" alt="Unity Bridge" class="hero-logo-img">
+                    </div>
+                    <div class="orbit-dot dot-1"><i class="fas fa-shield-halved"></i></div>
+                    <div class="orbit-dot dot-2"><i class="fas fa-network-wired"></i></div>
+                    <div class="orbit-dot dot-3"><i class="fas fa-code"></i></div>
+                    <div class="orbit-dot dot-4"><i class="fas fa-lock"></i></div>
                 </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>Scroll</span>
+                <div class="scroll-line"></div>
             </div>
         </section>
 
-        <!-- Services Section -->
+        <!-- ══ SERVICES ══ -->
         <section id="services" class="services">
             <div class="container">
-                <h2>Our Services</h2>
+                <div class="section-header" data-reveal>
+                    <span class="section-tag">What We Do</span>
+                    <h2>Our Services</h2>
+                    <p class="section-sub">End-to-end technology solutions tailored for small and large businesses and
+                        growing
+                        communities.</p>
+                </div>
                 <div class="services-grid">
-                    <!-- Networking & Infrastructure -->
-                    <div class="service-card">
-                        <i class="fas fa-network-wired"></i>
-                        <h3>Networking & Infrastructure</h3>
-                        <ul>
-                            <li>Internet Connectivity (fiber, wireless)</li>
-                            <li>Network Management & Monitoring</li>
-                            <li>Server Installation & Hardening</li>
-                            <li>Security Audits, Firewalls, VPNs</li>
+
+                    <div class="service-card" data-reveal data-delay="0">
+                        <div class="service-icon-wrap">
+                            <div class="service-icon-bg"></div>
+                            <i class="fas fa-network-wired service-icon"></i>
+                        </div>
+                        <div class="service-num">01</div>
+                        <h3>Networking &amp; Infrastructure</h3>
+                        <p class="service-desc">Rock-solid connectivity and infrastructure that scales with your
+                            business.</p>
+                        <ul class="service-list">
+                            <li><i class="fas fa-check"></i>Internet Connectivity (fiber, wireless)</li>
+                            <li><i class="fas fa-check"></i>Network Management &amp; Monitoring</li>
+                            <li><i class="fas fa-check"></i>Server Installation &amp; Hardening</li>
+                            <li><i class="fas fa-check"></i>Security Audits, Firewalls, VPNs</li>
                         </ul>
+                        <div class="service-footer">
+                            <a href="#contact" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                    <!-- Software Development -->
-                    <div class="service-card">
-                        <i class="fas fa-code"></i>
+
+                    <div class="service-card featured" data-reveal data-delay="120">
+                        <div class="service-badge">Most Popular</div>
+                        <div class="service-icon-wrap">
+                            <div class="service-icon-bg"></div>
+                            <i class="fas fa-code service-icon"></i>
+                        </div>
+                        <div class="service-num">02</div>
                         <h3>Software Development</h3>
-                        <ul>
-                            <li>Learning Portals & Business Trackers</li>
-                            <li>Inventory Management Systems</li>
-                            <li>Appointment Schedulers</li>
-                            <li>Custom Web & Mobile Apps</li>
+                        <p class="service-desc">Custom applications built for your exact workflow — no bloat, no
+                            guesswork.</p>
+                        <ul class="service-list">
+                            <li><i class="fas fa-check"></i>Learning Portals &amp; Business Trackers</li>
+                            <li><i class="fas fa-check"></i>Inventory Management Systems</li>
+                            <li><i class="fas fa-check"></i>Appointment Schedulers</li>
+                            <li><i class="fas fa-check"></i>Custom Web &amp; Mobile Apps</li>
                         </ul>
+                        <div class="service-footer">
+                            <a href="#contact" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                        </div>
                     </div>
-                    <!-- Ready-Made Solutions -->
-                    <div class="service-card">
-                        <i class="fas fa-box"></i>
+
+                    <div class="service-card" data-reveal data-delay="240">
+                        <div class="service-icon-wrap">
+                            <div class="service-icon-bg"></div>
+                            <i class="fas fa-box service-icon"></i>
+                        </div>
+                        <div class="service-num">03</div>
                         <h3>Ready-Made Solutions</h3>
-                        <ul>
-                            <li>Learning Management System</li>
-                            <li>Business Performance Tracker</li>
-                            <li>E‑commerce Starter Kits</li>
-                            <li>Offline‑capable POS (coming soon)</li>
+                        <p class="service-desc">Deploy fast with our pre-built, battle-tested platforms.</p>
+                        <ul class="service-list">
+                            <li><i class="fas fa-check"></i>Learning Management System</li>
+                            <li><i class="fas fa-check"></i>Business Performance Tracker</li>
+                            <li><i class="fas fa-check"></i>E-commerce Starter Kits</li>
+                            <li><i class="fas fa-check"></i>Offline-capable POS <span class="badge-soon">Soon</span>
+                            </li>
                         </ul>
+                        <div class="service-footer">
+                            <a href="#contact" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ WHY US ══ -->
+        <section class="why-us">
+            <div class="container">
+                <div class="why-grid">
+                    <div class="why-content" data-reveal>
+                        <span class="section-tag">Why Unity Bridge</span>
+                        <h2 class="why-heading">Built different.<br>By design.</h2>
+                        <p>We started Unity Bridge because small businesses deserve the same security standards as
+                            enterprise companies — without six-figure contracts or jargon-filled proposals.</p>
+                        <p style="margin-top:1rem">Every solution we deliver is built security-first, designed for
+                            real-world constraints, and backed by people who genuinely care about your success.</p>
+                        <a href="#contact" class="btn btn-primary" style="margin-top:2rem;display:inline-flex">
+                            <i class="fas fa-arrow-right"></i> Start a Conversation
+                        </a>
+                    </div>
+                    <div class="why-pillars" data-reveal data-delay="150">
+                        <div class="pillar">
+                            <div class="pillar-icon"><i class="fas fa-shield-halved"></i></div>
+                            <div>
+                                <h4>Security-First</h4>
+                                <p>Every decision — from architecture to deployment — starts with security.</p>
+                            </div>
+                        </div>
+                        <div class="pillar">
+                            <div class="pillar-icon"><i class="fas fa-hand-holding-dollar"></i></div>
+                            <div>
+                                <h4>Affordable</h4>
+                                <p>Enterprise-grade results at pricing that makes sense for small businesses.</p>
+                            </div>
+                        </div>
+                        <div class="pillar">
+                            <div class="pillar-icon"><i class="fas fa-people-group"></i></div>
+                            <div>
+                                <h4>Community-Driven</h4>
+                                <p>We grow when our clients grow. Your success is our metric.</p>
+                            </div>
+                        </div>
+                        <div class="pillar">
+                            <div class="pillar-icon"><i class="fas fa-bolt"></i></div>
+                            <div>
+                                <h4>Fast to Deploy</h4>
+                                <p>No endless back-and-forth. We move quickly and communicate clearly.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Team Section -->
+        <!-- ══ TEAM ══ -->
         <section id="team" class="team">
             <div class="container">
-                <h2>Meet the Team</h2>
+                <div class="section-header" data-reveal>
+                    <span class="section-tag">The People</span>
+                    <h2>Meet the Team</h2>
+                    <p class="section-sub">A focused team of specialists who've been in the trenches of real-world IT
+                        security and infrastructure.</p>
+                </div>
                 <div class="team-grid">
-                    <div class="team-member">
-                        <div class="avatar">
-                            <i class="fas fa-user-shield"></i>
-                        </div>
-                        <h3>Dylan Kibet</h3>
-                        <p>Founder & Lead Security Engineer</p>
-                        <p class="specialty">Server security, forensics, networking</p>
-                        <div class="social">
-                            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <div class="team-member">
-                        <div class="avatar">
-                            <i class="fas fa-network-wired"></i>
-                        </div>
-                        <h3>Bernard Korir</h3>
-                        <p>Network Architect</p>
-                        <p class="specialty">ISP installation, routing, automation</p>
-                        <div class="social">
-                            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+
+                    <div class="team-card" data-reveal data-delay="0">
+                        <div class="team-card-inner">
+                            <div class="team-avatar">
+                                <i class="fas fa-user-shield"></i>
+                                <div class="avatar-glow"></div>
+                            </div>
+                            <div class="team-info">
+                                <h3>Dylan Kibet</h3>
+                                <p class="team-role">Founder &amp; Lead Security Engineer</p>
+                                <p class="team-spec">Server security · Forensics · Networking</p>
+                                <p class="team-bio">Computer security and forensics specialist driving Unity Bridge's
+                                    mission to democratise enterprise-grade security for small businesses.</p>
+                                <div class="team-social">
+                                    <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i
+                                            class="fab fa-linkedin"></i></a>
+                                    <a href="#" target="_blank" rel="noopener" aria-label="GitHub"><i
+                                            class="fab fa-github"></i></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="team-member">
-                        <div class="avatar">
-                            <i class="fas fa-laptop-code"></i>
-                        </div>
-                        <h3>Ezra Tomno</h3>
-                        <p>Software Developer</p>
-                        <p class="specialty">Full‑stack, business apps, cloud</p>
-                        <div class="social">
-                            <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+
+                    <div class="team-card" data-reveal data-delay="150">
+                        <div class="team-card-inner">
+                            <div class="team-avatar">
+                                <i class="fas fa-network-wired"></i>
+                                <div class="avatar-glow"></div>
+                            </div>
+                            <div class="team-info">
+                                <h3>Bernard Korir</h3>
+                                <p class="team-role">Network Architect</p>
+                                <p class="team-spec">ISP installation · Routing · Automation</p>
+                                <p class="team-bio">Designs and deploys reliable, scalable network infrastructure from
+                                    the ground up, specialising in last-mile connectivity solutions.</p>
+                                <div class="team-social">
+                                    <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i
+                                            class="fab fa-linkedin"></i></a>
+                                    <a href="#" target="_blank" rel="noopener" aria-label="GitHub"><i
+                                            class="fab fa-github"></i></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    <div class="team-card" data-reveal data-delay="300">
+                        <div class="team-card-inner">
+                            <div class="team-avatar">
+                                <i class="fas fa-laptop-code"></i>
+                                <div class="avatar-glow"></div>
+                            </div>
+                            <div class="team-info">
+                                <h3>Ezra Tomno</h3>
+                                <p class="team-role">Software Developer</p>
+                                <p class="team-spec">Full-stack · Business apps · Cloud</p>
+                                <p class="team-bio">Builds clean, maintainable software that solves real business
+                                    problems — from inventory systems to cloud-integrated web platforms.</p>
+                                <div class="team-social">
+                                    <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i
+                                            class="fab fa-linkedin"></i></a>
+                                    <a href="#" target="_blank" rel="noopener" aria-label="GitHub"><i
+                                            class="fab fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- ══ CONTACT ══ -->
         <section id="contact" class="contact">
             <div class="container">
-                <h2>Contact Us</h2>
-                <form id="contact-form" action="https://formspree.io/f/yourformid" method="POST">
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <textarea name="message" placeholder="Tell us about your project..." rows="5" required></textarea>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                    <p class="privacy-note">We’ll never share your information. Unsubscribe anytime.</p>
-                </form>
-                <p>Or email us directly: <a href="mailto:hello@unitybridge.com">hello@unitybridge.com</a></p>
+                <div class="contact-grid">
+
+                    <div class="contact-info" data-reveal>
+                        <span class="section-tag">Get In Touch</span>
+                        <h2 class="contact-heading">Let's build something<br><span class="text-cyan">secure</span>
+                            together.</h2>
+                        <p>Ready to upgrade your IT infrastructure or start a new project? We'd love to hear from you —
+                            no jargon, no sales pressure.</p>
+                        <div class="contact-details">
+                            <div class="contact-detail">
+                                <div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
+                                <div>
+                                    <span class="detail-label">Email</span>
+                                    <a href="mailto:hello@unitybridge.com">hello@unitybridge.com</a>
+                                </div>
+                            </div>
+                            <div class="contact-detail">
+                                <div class="contact-detail-icon"><i class="fas fa-map-pin"></i></div>
+                                <div>
+                                    <span class="detail-label">Based in</span>
+                                    <span>Kenya 🇰🇪 &mdash; Serving globally</span>
+                                </div>
+                            </div>
+                            <div class="contact-detail">
+                                <div class="contact-detail-icon"><i class="fas fa-clock"></i></div>
+                                <div>
+                                    <span class="detail-label">Response time</span>
+                                    <span>Within 24 hours</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-wrap" data-reveal data-delay="150">
+                        <form id="contact-form" action="https://formspree.io/f/yourformid" method="POST" novalidate>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">Your Name</label>
+                                    <input type="text" id="name" name="name" placeholder="Dylan Kibet" required
+                                        autocomplete="name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" name="email" placeholder="you@example.com" required
+                                        autocomplete="email">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Service Interest</label>
+                                <select id="service" name="service">
+                                    <option value="" disabled selected>Select a service...</option>
+                                    <option value="networking">Networking &amp; Infrastructure</option>
+                                    <option value="software">Software Development</option>
+                                    <option value="ready-made">Ready-Made Solutions</option>
+                                    <option value="other">Other / General Inquiry</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Tell Us About Your Project</label>
+                                <textarea id="message" name="message" rows="5"
+                                    placeholder="Describe your project, challenges, or questions..."
+                                    required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+                                <span class="btn-text"><i class="fas fa-paper-plane"></i> Send Message</span>
+                                <span class="btn-loading" style="display:none"><i class="fas fa-spinner fa-spin"></i>
+                                    Sending...</span>
+                            </button>
+                            <p class="privacy-note"><i class="fas fa-lock"></i> Your data is private and never shared.
+                                Unsubscribe anytime.</p>
+                        </form>
+                        <div id="form-success" class="form-success" style="display:none">
+                            <i class="fas fa-circle-check"></i>
+                            <h3>Message sent!</h3>
+                            <p>We'll get back to you within 24 hours.</p>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </section>
+
     </main>
 
+    <!-- ══ FOOTER ══ -->
     <footer>
-        <div class="container">
-            <p>&copy; 2025 Unity Bridge. All rights reserved.</p>
-            <div class="social">
-                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <img src="images/logo.png" alt="Unity Bridge" class="footer-logo">
+                <span>Unity Bridge</span>
             </div>
+            <p class="footer-tagline">Your bridge to secure connectivity.</p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#team">Team</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="footer-social">
+                <a href="#" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank" rel="noopener" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+            </div>
+            <p class="footer-copy">&copy; 2025 Unity Bridge. All rights reserved. Built with ❤️ in Kenya.</p>
         </div>
     </footer>
 
-    <!-- Smooth Scroll Script -->
-    <script>
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) target.scrollIntoView({ behavior: 'smooth' });
-            });
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

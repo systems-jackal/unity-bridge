@@ -1,30 +1,117 @@
-# Unity Bridge Website
+# Unity Bridge
 
-![Unity Bridge Logo](images/Tech%20Logo%20hero%20.png)
+> **Your bridge to secure connectivity** — affordable, enterprise-grade IT for small businesses and communities.
 
-Official website for [Unity Bridge](https://unitybridge.dev) – a security-first technology startup providing affordable IT infrastructure, networking, and software solutions for small businesses and communities.
+![Unity Bridge](images/logo.png)
 
-## 🚀 About the Project
+---
 
-Unity Bridge was founded by a computer security and forensics student with a mission to bridge the gap between cutting-edge cybersecurity and everyday technology. This website serves as our company landing page, showcasing our services, team, and projects.
+## 🔒 About
 
-### Built With
-- HTML5
-- CSS3 (with custom properties and Flexbox/Grid)
-- Font Awesome icons
-- Google Fonts (Inter)
+**Unity Bridge** is a security-first technology startup founded by a computer security and forensics specialist. We bridge the gap between cutting-edge cybersecurity and everyday business technology — delivering reliable IT infrastructure, custom software, and ready-made solutions at prices that make sense for small businesses.
 
-## ✨ Features
-- Fully responsive design
-- Smooth scrolling navigation
-- Custom logo with transparent background
-- Contact form (powered by Formspree)
-- Team section with real members
+Live site: [https://systems-jackal.github.io/unity-bridge/](https://systems-jackal.github.io/unity-bridge/)
 
-## 🛠️ Getting Started
+---
 
-To view the website locally:
+## ✨ What We Offer
 
-1. Clone the repo
-   ```sh
-   git clone https://github.com/yourusername/unitybridge
+| Service | Description |
+|---|---|
+| 🌐 **Networking & Infrastructure** | Fiber/wireless connectivity, network monitoring, server hardening, firewalls, VPNs |
+| 💻 **Software Development** | Custom web & mobile apps, inventory systems, schedulers, learning portals |
+| 📦 **Ready-Made Solutions** | LMS, business performance tracker, e-commerce kits, offline POS *(coming soon)* |
+
+---
+
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Markup | HTML5 (semantic) |
+| Styling | CSS3 — custom properties, Flexbox, Grid, animations |
+| Fonts | [Syne](https://fonts.google.com/specimen/Syne) (display) + [DM Sans](https://fonts.google.com/specimen/DM+Sans) (body) |
+| Icons | [Font Awesome 6](https://fontawesome.com/) |
+| Scripts | Vanilla JavaScript (ES2020+) |
+| Forms | [Formspree](https://formspree.io/) |
+
+No frameworks. No build tools. Just clean, fast, dependency-light code.
+
+---
+
+## 📁 Project Structure
+
+```
+unity-bridge/
+├── index.html          # Main page — all sections
+├── css/
+│   └── style.css       # All styles — tokens, layout, components, responsive
+├── js/
+│   └── main.js         # Interactions — cursor, particles, scroll reveal, form
+├── images/
+│   ├── logo.png        # Unity Bridge logo (transparent background)
+│   └── favicon.png     # Browser tab icon
+└── README.md
+```
+
+---
+
+## 🚀 Running Locally
+
+No build step required.
+
+```bash
+# Clone the repo
+git clone https://github.com/systems-jackal/unity-bridge.git
+cd unity-bridge
+
+# Open directly in your browser
+open index.html
+
+# Or use a local server (recommended for form testing)
+npx serve .
+# then visit http://localhost:3000
+```
+
+---
+
+## 🌐 Deployment
+
+The site is deployed via **GitHub Pages** from the `main` branch root.
+
+To deploy your own fork:
+1. Go to your repo → **Settings** → **Pages**
+2. Set source to `main` branch, `/ (root)` folder
+3. Save — your site will be live at `https://<username>.github.io/unity-bridge/`
+
+---
+
+## 📬 Contact Form Setup
+
+The contact form uses [Formspree](https://formspree.io/). To activate it:
+
+1. Create a free account at [formspree.io](https://formspree.io/)
+2. Create a new form and copy your form ID
+3. In `index.html`, replace `yourformid` in the form action:
+
+```html
+<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+```
+
+---
+
+## 👥 Team
+
+| Name | Role | Specialties |
+|---|---|---|
+| **Dylan Kibet** | Founder & Lead Security Engineer | Server security, forensics, networking |
+| **Bernard Korir** | Network Architect | ISP installation, routing, automation |
+| **Ezra Tomno** | Software Developer | Full-stack, business apps, cloud |
+
+---
+
+## 📄 License
+
+© 2025 Unity Bridge. All rights reserved.
+
+Built with ❤️ in Kenya 🇰🇪
