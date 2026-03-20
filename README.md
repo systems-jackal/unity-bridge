@@ -10,7 +10,7 @@
 
 **Unity Bridge** is a security-first technology startup founded by a computer security and forensics specialist. We bridge the gap between cutting-edge cybersecurity and everyday business technology — delivering reliable IT infrastructure, custom software, and ready-made solutions at prices that make sense for small businesses.
 
-Live site: [https://systems-jackal.github.io/unity-bridge/](https://systems-jackal.github.io/unity-bridge/)
+Live site: [www.unitybridge.dev](unitybridge.dev/)
 
 ---
 
