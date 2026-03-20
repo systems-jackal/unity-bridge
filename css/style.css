@@ -482,8 +482,8 @@ header nav {
 .logo-glow-wrap {
     position: relative;
     z-index: 2;
-    width: 170px;
-    height: 170px;
+    width: 240px;
+    height: 240px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -494,8 +494,8 @@ header nav {
 }
 
 .hero-logo-img {
-    width: 100px;
-    height: 100px;
+    width: 180px;
+    height: 180px;
     object-fit: contain;
     filter: drop-shadow(0 0 18px var(--cyan-glow));
     animation: pulse-logo 4s ease-in-out infinite;
