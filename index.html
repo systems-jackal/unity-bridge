@@ -320,7 +320,14 @@
                     </div>
 
                     <div class="contact-form-wrap ri ri-d">
-                        <form id="contact-form" action="https://formspree.io/f/yourformid" method="POST" novalidate>
+                        <form id="contact-form" action="https://formspree.io/f/xqeyqqbp" method="POST" novalidate>
+                            <!-- Formspree hidden controls -->
+                            <!-- Custom email subject — keeps your inbox organised -->
+                            <input type="hidden" name="_subject" value="New Enquiry — Unity Bridge Website">
+                            <!-- Redirect after submit (optional — JS handles this but good fallback) -->
+                            <input type="hidden" name="_next" value="https://unitybridge.dev/#contact">
+                            <!-- Honeypot spam trap — bots fill this, humans don't see it -->
+                            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="name">Your Name</label>
