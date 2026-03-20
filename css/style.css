@@ -286,7 +286,8 @@ header nav {
     font-family: var(--font-head);
     font-weight: 700;
     font-size: 1.1rem;
-    color: var(--white);
+    color: #eef4ff;
+    text-shadow: 0 0 1px rgba(0, 0, 0, .5);
 }
 
 .nav-links {
@@ -384,9 +385,9 @@ header nav {
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1.1fr;
     align-items: center;
-    gap: 4rem;
+    gap: 6rem;
     position: relative;
     z-index: 1;
 }
@@ -467,7 +468,8 @@ header nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 420px;
+    height: 520px;
+    margin-left: 3rem;
 }
 
 .logo-glow-wrap {
@@ -499,22 +501,22 @@ header nav {
 }
 
 .ring-1 {
-    width: 230px;
-    height: 230px;
+    width: 290px;
+    height: 290px;
     animation: spin 14s linear infinite;
 }
 
 .ring-2 {
-    width: 310px;
-    height: 310px;
+    width: 400px;
+    height: 400px;
     animation: spin 22s linear infinite reverse;
     border-style: dashed;
     border-color: rgba(0, 200, 232, .07);
 }
 
 .ring-3 {
-    width: 390px;
-    height: 390px;
+    width: 500px;
+    height: 500px;
     animation: spin 30s linear infinite;
     border-color: rgba(0, 200, 232, .04);
 }
