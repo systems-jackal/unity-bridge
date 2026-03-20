@@ -1,99 +1,69 @@
-/* ═══════════════════════════════════════
-   UNITY BRIDGE — main.js
-   Handles: cursor, nav, hero particles,
-   scroll reveal, hamburger, form
-═══════════════════════════════════════ */
-
 'use strict';
 
-/* ── CUSTOM CURSOR ── */
-(function initCursor() {
+/* ── CURSOR ── */
+(function () {
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursor-ring');
     if (!cursor || !ring) return;
 
-    let mx = -100, my = -100;
-    let rx = -100, ry = -100;
+    let mx = -200, my = -200, rx = -200, ry = -200;
 
     document.addEventListener('mousemove', e => {
-        mx = e.clientX;
-        my = e.clientY;
-        cursor.style.transform = `translate(${mx}px, ${my}px) translate(-50%, -50%)`;
+        mx = e.clientX; my = e.clientY;
+        cursor.style.left = mx + 'px';
+        cursor.style.top = my + 'px';
     });
 
-    // Smooth ring follows cursor
-    function animateRing() {
-        rx += (mx - rx) * 0.14;
-        ry += (my - ry) * 0.14;
-        ring.style.transform = `translate(${rx}px, ${ry}px) translate(-50%, -50%)`;
-        requestAnimationFrame(animateRing);
-    }
-    animateRing();
+    (function loop() {
+        rx += (mx - rx) * 0.13;
+        ry += (my - ry) * 0.13;
+        ring.style.left = rx + 'px';
+        ring.style.top = ry + 'px';
+        requestAnimationFrame(loop);
+    })();
 
-    // Hover state on interactive elements
-    const interactives = 'a, button, input, textarea, select, .service-card, .team-card, .pillar';
-    document.addEventListener('mouseover', e => {
-        if (e.target.closest(interactives)) ring.classList.add('hovered');
-    });
-    document.addEventListener('mouseout', e => {
-        if (e.target.closest(interactives)) ring.classList.remove('hovered');
-    });
-
-    // Hide on mouse leave
-    document.addEventListener('mouseleave', () => {
-        cursor.style.opacity = '0';
-        ring.style.opacity = '0';
-    });
-    document.addEventListener('mouseenter', () => {
-        cursor.style.opacity = '1';
-        ring.style.opacity = '1';
-    });
+    const sel = 'a, button, input, textarea, select, .service-card, .team-card, .pillar';
+    document.addEventListener('mouseover', e => { if (e.target.closest(sel)) ring.classList.add('hovered'); });
+    document.addEventListener('mouseout', e => { if (e.target.closest(sel)) ring.classList.remove('hovered'); });
 })();
 
 
-/* ── NAV: SCROLL SHRINK & ACTIVE LINK ── */
-(function initNav() {
+/* ── NAVBAR SCROLL ── */
+(function () {
     const header = document.getElementById('navbar');
-    const links = document.querySelectorAll('.nav-links a');
+    const navLinks = document.querySelectorAll('.nav-links a');
     const sections = document.querySelectorAll('section[id]');
 
-    // Shrink on scroll
-    window.addEventListener('scroll', () => {
-        header.classList.toggle('scrolled', window.scrollY > 40);
-        highlightActiveLink();
-    }, { passive: true });
+    function onScroll() {
+        header.classList.toggle('scrolled', window.scrollY > 50);
 
-    function highlightActiveLink() {
         let current = '';
-        sections.forEach(section => {
-            if (window.scrollY >= section.offsetTop - 120) {
-                current = section.getAttribute('id');
-            }
+        sections.forEach(s => {
+            if (window.scrollY >= s.offsetTop - 130) current = s.id;
         });
-        links.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
+        navLinks.forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + current);
         });
     }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 })();
 
 
-/* ── HAMBURGER MENU ── */
-(function initHamburger() {
+/* ── HAMBURGER ── */
+(function () {
     const btn = document.getElementById('hamburger');
     const links = document.getElementById('navLinks');
     if (!btn || !links) return;
 
     btn.addEventListener('click', () => {
-        const isOpen = btn.classList.toggle('open');
-        links.classList.toggle('open', isOpen);
-        btn.setAttribute('aria-expanded', isOpen);
-        document.body.style.overflow = isOpen ? 'hidden' : '';
+        const open = btn.classList.toggle('open');
+        links.classList.toggle('open', open);
+        btn.setAttribute('aria-expanded', open);
+        document.body.style.overflow = open ? 'hidden' : '';
     });
 
-    // Close on link click
     links.querySelectorAll('a').forEach(a => {
         a.addEventListener('click', () => {
             btn.classList.remove('open');
@@ -106,235 +76,175 @@
 
 
 /* ── SMOOTH SCROLL ── */
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        const id = this.getAttribute('href');
-        const target = document.querySelector(id);
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
         if (!target) return;
         e.preventDefault();
-        const offset = document.getElementById('navbar').offsetHeight + 12;
-        window.scrollTo({
-            top: target.getBoundingClientRect().top + window.scrollY - offset,
-            behavior: 'smooth'
-        });
+        const offset = (document.getElementById('navbar') || { offsetHeight: 72 }).offsetHeight + 10;
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
     });
 });
 
 
-/* ── HERO PARTICLE CANVAS ── */
-(function initParticles() {
+/* ── HERO PARTICLES ── */
+(function () {
     const canvas = document.getElementById('heroCanvas');
     if (!canvas) return;
-
     const ctx = canvas.getContext('2d');
-    let W, H, particles = [], mouse = { x: -999, y: -999 };
-    const COUNT = 90;
-    const CYAN = '0, 200, 232';
+    let W, H;
+    const COUNT = 80;
+    const mouse = { x: -999, y: -999 };
 
     function resize() {
         W = canvas.width = canvas.offsetWidth;
         H = canvas.height = canvas.offsetHeight;
     }
 
-    class Particle {
-        constructor() { this.reset(true); }
-        reset(init = false) {
-            this.x = Math.random() * W;
-            this.y = init ? Math.random() * H : H + 10;
-            this.size = 0.6 + Math.random() * 1.8;
-            this.speedX = (Math.random() - 0.5) * 0.35;
-            this.speedY = -(0.25 + Math.random() * 0.55);
-            this.alpha = 0;
-            this.maxAlpha = 0.2 + Math.random() * 0.35;
-            this.life = 0;
-            this.maxLife = 180 + Math.random() * 260;
-            if (init) {
-                this.life = Math.random() * this.maxLife;
-                this.alpha = this.maxAlpha * (this.life / this.maxLife);
-            }
+    class P {
+        constructor() { this.init(true); }
+        init(rand) {
+            this.x = Math.random() * (W || 800);
+            this.y = rand ? Math.random() * (H || 600) : (H || 600) + 10;
+            this.r = 0.6 + Math.random() * 1.6;
+            this.vx = (Math.random() - 0.5) * 0.3;
+            this.vy = -(0.2 + Math.random() * 0.5);
+            this.life = rand ? Math.random() * 200 : 0;
+            this.max = 180 + Math.random() * 240;
+            this.peak = 0.15 + Math.random() * 0.3;
         }
         update() {
-            this.x += this.speedX;
-            this.y += this.speedY;
-            this.life++;
-
-            // Subtle mouse repulsion
-            const dx = this.x - mouse.x;
-            const dy = this.y - mouse.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 120) {
-                const force = (120 - dist) / 120;
-                this.x += dx / dist * force * 1.5;
-                this.y += dy / dist * force * 1.5;
-            }
-
-            // Fade in / fade out
-            const progress = this.life / this.maxLife;
-            if (progress < 0.15) this.alpha = this.maxAlpha * (progress / 0.15);
-            else if (progress > 0.75) this.alpha = this.maxAlpha * (1 - (progress - 0.75) / 0.25);
-            else this.alpha = this.maxAlpha;
-
-            if (this.life >= this.maxLife) this.reset();
+            this.x += this.vx; this.y += this.vy; this.life++;
+            const dx = this.x - mouse.x, dy = this.y - mouse.y;
+            const d = Math.sqrt(dx * dx + dy * dy);
+            if (d < 100 && d > 0) { const f = (100 - d) / 100; this.x += dx / d * f * 1.2; this.y += dy / d * f * 1.2; }
+            if (this.life >= this.max) this.init(false);
+        }
+        alpha() {
+            const p = this.life / this.max;
+            if (p < 0.15) return this.peak * (p / 0.15);
+            if (p > 0.75) return this.peak * (1 - (p - 0.75) / 0.25);
+            return this.peak;
         }
         draw() {
             ctx.save();
-            ctx.globalAlpha = this.alpha;
-            ctx.fillStyle = `rgba(${CYAN}, 1)`;
-            ctx.shadowColor = `rgba(${CYAN}, 0.8)`;
-            ctx.shadowBlur = this.size * 4;
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
+            ctx.globalAlpha = this.alpha();
+            ctx.fillStyle = '#00c8e8';
+            ctx.shadowColor = '#00c8e8';
+            ctx.shadowBlur = this.r * 4;
+            ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2); ctx.fill();
             ctx.restore();
         }
     }
 
-    function drawConnections() {
-        const maxDist = 130;
-        for (let i = 0; i < particles.length; i++) {
-            for (let j = i + 1; j < particles.length; j++) {
-                const dx = particles[i].x - particles[j].x;
-                const dy = particles[i].y - particles[j].y;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-                if (dist < maxDist) {
-                    const alpha = (1 - dist / maxDist) * 0.08;
+    let pts = [];
+
+    function lines() {
+        for (let i = 0; i < pts.length; i++) {
+            for (let j = i + 1; j < pts.length; j++) {
+                const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
+                const d = Math.sqrt(dx * dx + dy * dy);
+                if (d < 120) {
                     ctx.save();
-                    ctx.strokeStyle = `rgba(${CYAN}, ${alpha})`;
-                    ctx.lineWidth = 0.8;
-                    ctx.beginPath();
-                    ctx.moveTo(particles[i].x, particles[i].y);
-                    ctx.lineTo(particles[j].x, particles[j].y);
-                    ctx.stroke();
+                    ctx.strokeStyle = `rgba(0,200,232,${(1 - d / 120) * 0.07})`;
+                    ctx.lineWidth = 0.7;
+                    ctx.beginPath(); ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y); ctx.stroke();
                     ctx.restore();
                 }
             }
         }
     }
 
-    function animate() {
+    function frame() {
         ctx.clearRect(0, 0, W, H);
-        drawConnections();
-        particles.forEach(p => { p.update(); p.draw(); });
-        requestAnimationFrame(animate);
+        lines();
+        pts.forEach(p => { p.update(); p.draw(); });
+        requestAnimationFrame(frame);
     }
 
-    function init() {
-        resize();
-        particles = Array.from({ length: COUNT }, () => new Particle());
-        animate();
-    }
+    resize();
+    pts = Array.from({ length: COUNT }, () => new P());
+    frame();
 
     canvas.addEventListener('mousemove', e => {
-        const rect = canvas.getBoundingClientRect();
-        mouse.x = e.clientX - rect.left;
-        mouse.y = e.clientY - rect.top;
+        const r = canvas.getBoundingClientRect();
+        mouse.x = e.clientX - r.left; mouse.y = e.clientY - r.top;
     });
     canvas.addEventListener('mouseleave', () => { mouse.x = -999; mouse.y = -999; });
-
-    window.addEventListener('resize', () => {
-        resize();
-        particles.forEach(p => p.reset(true));
-    });
-
-    init();
+    window.addEventListener('resize', () => { resize(); pts.forEach(p => p.init(true)); });
 })();
 
 
 /* ── SCROLL REVEAL ── */
-(function initScrollReveal() {
-    const els = document.querySelectorAll('[data-reveal]');
-    if (!els.length) return;
+(function () {
+    const items = document.querySelectorAll('.ri');
+    if (!items.length) return;
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                // Honour data-delay attribute
-                const delay = entry.target.dataset.delay || 0;
-                setTimeout(() => entry.target.classList.add('revealed'), parseInt(delay));
-                observer.unobserve(entry.target);
+    const obs = new IntersectionObserver(entries => {
+        entries.forEach(el => {
+            if (el.isIntersecting) {
+                const delay = el.target.classList.contains('ri-d') ? 180 : 0;
+                setTimeout(() => el.target.classList.add('visible'), delay);
+                obs.unobserve(el.target);
             }
         });
-    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    els.forEach(el => observer.observe(el));
+    items.forEach(el => obs.observe(el));
 })();
 
 
 /* ── CONTACT FORM ── */
-(function initForm() {
+(function () {
     const form = document.getElementById('contact-form');
-    const successBox = document.getElementById('form-success');
-    const submitBtn = document.getElementById('submitBtn');
+    const success = document.getElementById('form-success');
+    const btn = document.getElementById('submitBtn');
     if (!form) return;
 
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', async e => {
         e.preventDefault();
 
-        // Basic client-side validation
         const name = form.querySelector('#name');
-        const email = form.querySelector('#email');
-        const message = form.querySelector('#message');
-        let valid = true;
-
-        [name, email, message].forEach(field => {
-            field.style.borderColor = '';
-            if (!field.value.trim()) {
-                field.style.borderColor = '#f43f5e';
-                valid = false;
-            }
+        const mail = form.querySelector('#email');
+        const msg = form.querySelector('#message');
+        let ok = true;
+        [name, mail, msg].forEach(f => {
+            f.style.borderColor = f.value.trim() ? '' : '#f43f5e';
+            if (!f.value.trim()) ok = false;
         });
-        if (!valid) return;
+        if (!ok) return;
 
-        // Show loading state
-        const btnText = submitBtn.querySelector('.btn-text');
-        const btnLoading = submitBtn.querySelector('.btn-loading');
-        submitBtn.disabled = true;
-        btnText.style.display = 'none';
-        btnLoading.style.display = 'flex';
+        const txtEl = btn.querySelector('.btn-text');
+        const loadEl = btn.querySelector('.btn-loading');
+        btn.disabled = true;
+        txtEl.style.display = 'none';
+        loadEl.style.display = 'flex';
 
         try {
-            const data = new FormData(form);
             const res = await fetch(form.action, {
-                method: 'POST',
-                body: data,
-                headers: { 'Accept': 'application/json' }
+                method: 'POST', body: new FormData(form),
+                headers: { Accept: 'application/json' }
             });
-
             if (res.ok) {
-                // Show success
                 form.style.display = 'none';
-                successBox.style.display = 'flex';
-            } else {
-                throw new Error('Form submission failed');
+                success.style.display = 'flex';
+            } else { throw new Error(); }
+        } catch {
+            btn.disabled = false;
+            txtEl.style.display = 'flex';
+            loadEl.style.display = 'none';
+            let err = form.querySelector('.form-error');
+            if (!err) {
+                err = document.createElement('p');
+                err.className = 'form-error';
+                err.style.cssText = 'color:#f43f5e;font-size:.85rem;text-align:center;margin-top:.5rem';
+                btn.after(err);
             }
-        } catch (err) {
-            // Reset button and show inline error
-            submitBtn.disabled = false;
-            btnText.style.display = 'flex';
-            btnLoading.style.display = 'none';
-            // Show a simple error note
-            let errNote = form.querySelector('.form-error');
-            if (!errNote) {
-                errNote = document.createElement('p');
-                errNote.className = 'form-error';
-                errNote.style.cssText = 'color:#f43f5e;font-size:.85rem;text-align:center;margin-top:.5rem';
-                submitBtn.after(errNote);
-            }
-            errNote.textContent = 'Something went wrong. Please email us directly at hello@unitybridge.com';
+            err.textContent = 'Something went wrong. Please email hello@unitybridge.com directly.';
         }
     });
 
-    // Clear red borders on input
-    form.querySelectorAll('input, textarea').forEach(field => {
-        field.addEventListener('input', () => { field.style.borderColor = ''; });
+    form.querySelectorAll('input, textarea').forEach(f => {
+        f.addEventListener('input', () => { f.style.borderColor = ''; });
     });
-})();
-
-
-/* ── ACTIVE NAV LINK STYLE (injected) ── */
-(function addActiveStyle() {
-    const style = document.createElement('style');
-    style.textContent = `.nav-links a.active { color: var(--cyan); }
-  .nav-links a.active::after { width: 100%; }`;
-    document.head.appendChild(style);
 })();

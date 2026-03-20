@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 
 <head>
     <meta charset="UTF-8">
@@ -16,18 +16,18 @@
     <link rel="apple-touch-icon" href="images/favicon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link
-        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
 </head>
 
 <body>
 
-    <!-- ══ CUSTOM CURSOR ══ -->
     <div id="cursor"></div>
     <div id="cursor-ring"></div>
 
-    <!-- ══ NAVIGATION ══ -->
+    <!-- NAV -->
     <header id="navbar">
         <nav class="container">
             <a href="#home" class="nav-logo">
@@ -41,7 +41,7 @@
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <a href="#contact" class="btn btn-nav">Get Started</a>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
                 <span></span><span></span><span></span>
             </button>
         </nav>
@@ -49,51 +49,31 @@
 
     <main>
 
-        <!-- ══ HERO ══ -->
+        <!-- HERO -->
         <section id="home" class="hero">
             <canvas id="heroCanvas"></canvas>
             <div class="hero-glow"></div>
             <div class="container hero-grid">
-                <div class="hero-content" data-reveal>
-                    <div class="hero-tag">
-                        <i class="fas fa-shield-halved"></i>
-                        Security-First Technology
-                    </div>
-                    <h1>
-                        Secure.<br>
-                        <span class="text-cyan">Connect.</span><br>
-                        Innovate.
-                    </h1>
-                    <p class="hero-sub">
-                        Bridging trust and technology for small businesses and communities.
-                        Affordable, enterprise-grade IT infrastructure — without the enterprise price tag.
-                    </p>
+                <div class="hero-content ri">
+                    <div class="hero-tag"><i class="fas fa-shield-halved"></i> Security-First Technology</div>
+                    <h1>Secure.<br><span class="text-cyan">Connect.</span><br>Innovate.</h1>
+                    <p class="hero-sub">Bridging trust and technology for small businesses and communities. Affordable,
+                        enterprise-grade IT infrastructure — without the enterprise price tag.</p>
                     <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary">
-                            <i class="fas fa-arrow-right"></i> Get in Touch
-                        </a>
-                        <a href="#services" class="btn btn-outline">
-                            Explore Services
-                        </a>
+                        <a href="#contact" class="btn btn-primary"><i class="fas fa-arrow-right"></i> Get in Touch</a>
+                        <a href="#services" class="btn btn-outline">Explore Services</a>
                     </div>
                     <div class="hero-stats">
-                        <div class="stat">
-                            <span class="stat-num">100%</span>
-                            <span class="stat-label">Security-First</span>
-                        </div>
+                        <div class="stat"><span class="stat-num">100%</span><span
+                                class="stat-label">Security-First</span></div>
                         <div class="stat-divider"></div>
-                        <div class="stat">
-                            <span class="stat-num">3</span>
-                            <span class="stat-label">Expert Specialists</span>
-                        </div>
+                        <div class="stat"><span class="stat-num">3</span><span class="stat-label">Expert
+                                Specialists</span></div>
                         <div class="stat-divider"></div>
-                        <div class="stat">
-                            <span class="stat-num">SMB</span>
-                            <span class="stat-label">Focused</span>
-                        </div>
+                        <div class="stat"><span class="stat-num">SMB</span><span class="stat-label">Focused</span></div>
                     </div>
                 </div>
-                <div class="hero-visual" data-reveal data-delay="200">
+                <div class="hero-visual ri ri-d">
                     <div class="orbit-ring ring-1"></div>
                     <div class="orbit-ring ring-2"></div>
                     <div class="orbit-ring ring-3"></div>
@@ -106,25 +86,23 @@
                     <div class="orbit-dot dot-4"><i class="fas fa-lock"></i></div>
                 </div>
             </div>
-            <div class="scroll-indicator">
-                <span>Scroll</span>
+            <div class="scroll-indicator"><span>Scroll</span>
                 <div class="scroll-line"></div>
             </div>
         </section>
 
-        <!-- ══ SERVICES ══ -->
+        <!-- SERVICES -->
         <section id="services" class="services">
             <div class="container">
-                <div class="section-header" data-reveal>
+                <div class="section-header ri">
                     <span class="section-tag">What We Do</span>
                     <h2>Our Services</h2>
-                    <p class="section-sub">End-to-end technology solutions tailored for small and large businesses and
-                        growing
+                    <p class="section-sub">End-to-end technology solutions tailored for small businesses and growing
                         communities.</p>
                 </div>
                 <div class="services-grid">
 
-                    <div class="service-card" data-reveal data-delay="0">
+                    <div class="service-card ri">
                         <div class="service-icon-wrap">
                             <div class="service-icon-bg"></div>
                             <i class="fas fa-network-wired service-icon"></i>
@@ -139,12 +117,11 @@
                             <li><i class="fas fa-check"></i>Server Installation &amp; Hardening</li>
                             <li><i class="fas fa-check"></i>Security Audits, Firewalls, VPNs</li>
                         </ul>
-                        <div class="service-footer">
-                            <a href="#contact" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
-                        </div>
+                        <div class="service-footer"><a href="#contact" class="service-link">Learn more <i
+                                    class="fas fa-arrow-right"></i></a></div>
                     </div>
 
-                    <div class="service-card featured" data-reveal data-delay="120">
+                    <div class="service-card featured ri">
                         <div class="service-badge">Most Popular</div>
                         <div class="service-icon-wrap">
                             <div class="service-icon-bg"></div>
@@ -160,12 +137,11 @@
                             <li><i class="fas fa-check"></i>Appointment Schedulers</li>
                             <li><i class="fas fa-check"></i>Custom Web &amp; Mobile Apps</li>
                         </ul>
-                        <div class="service-footer">
-                            <a href="#contact" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
-                        </div>
+                        <div class="service-footer"><a href="#contact" class="service-link">Learn more <i
+                                    class="fas fa-arrow-right"></i></a></div>
                     </div>
 
-                    <div class="service-card" data-reveal data-delay="240">
+                    <div class="service-card ri">
                         <div class="service-icon-wrap">
                             <div class="service-icon-bg"></div>
                             <i class="fas fa-box service-icon"></i>
@@ -180,20 +156,19 @@
                             <li><i class="fas fa-check"></i>Offline-capable POS <span class="badge-soon">Soon</span>
                             </li>
                         </ul>
-                        <div class="service-footer">
-                            <a href="#contact" class="service-link">Learn more <i class="fas fa-arrow-right"></i></a>
-                        </div>
+                        <div class="service-footer"><a href="#contact" class="service-link">Learn more <i
+                                    class="fas fa-arrow-right"></i></a></div>
                     </div>
 
                 </div>
             </div>
         </section>
 
-        <!-- ══ WHY US ══ -->
+        <!-- WHY US -->
         <section class="why-us">
             <div class="container">
                 <div class="why-grid">
-                    <div class="why-content" data-reveal>
+                    <div class="why-content ri">
                         <span class="section-tag">Why Unity Bridge</span>
                         <h2 class="why-heading">Built different.<br>By design.</h2>
                         <p>We started Unity Bridge because small businesses deserve the same security standards as
@@ -204,7 +179,7 @@
                             <i class="fas fa-arrow-right"></i> Start a Conversation
                         </a>
                     </div>
-                    <div class="why-pillars" data-reveal data-delay="150">
+                    <div class="why-pillars ri ri-d">
                         <div class="pillar">
                             <div class="pillar-icon"><i class="fas fa-shield-halved"></i></div>
                             <div>
@@ -238,10 +213,10 @@
             </div>
         </section>
 
-        <!-- ══ TEAM ══ -->
+        <!-- TEAM -->
         <section id="team" class="team">
             <div class="container">
-                <div class="section-header" data-reveal>
+                <div class="section-header ri">
                     <span class="section-tag">The People</span>
                     <h2>Meet the Team</h2>
                     <p class="section-sub">A focused team of specialists who've been in the trenches of real-world IT
@@ -249,10 +224,9 @@
                 </div>
                 <div class="team-grid">
 
-                    <div class="team-card" data-reveal data-delay="0">
+                    <div class="team-card ri">
                         <div class="team-card-inner">
-                            <div class="team-avatar">
-                                <i class="fas fa-user-shield"></i>
+                            <div class="team-avatar"><i class="fas fa-user-shield"></i>
                                 <div class="avatar-glow"></div>
                             </div>
                             <div class="team-info">
@@ -271,10 +245,9 @@
                         </div>
                     </div>
 
-                    <div class="team-card" data-reveal data-delay="150">
+                    <div class="team-card ri">
                         <div class="team-card-inner">
-                            <div class="team-avatar">
-                                <i class="fas fa-network-wired"></i>
+                            <div class="team-avatar"><i class="fas fa-network-wired"></i>
                                 <div class="avatar-glow"></div>
                             </div>
                             <div class="team-info">
@@ -293,10 +266,9 @@
                         </div>
                     </div>
 
-                    <div class="team-card" data-reveal data-delay="300">
+                    <div class="team-card ri">
                         <div class="team-card-inner">
-                            <div class="team-avatar">
-                                <i class="fas fa-laptop-code"></i>
+                            <div class="team-avatar"><i class="fas fa-laptop-code"></i>
                                 <div class="avatar-glow"></div>
                             </div>
                             <div class="team-info">
@@ -319,12 +291,11 @@
             </div>
         </section>
 
-        <!-- ══ CONTACT ══ -->
+        <!-- CONTACT -->
         <section id="contact" class="contact">
             <div class="container">
                 <div class="contact-grid">
-
-                    <div class="contact-info" data-reveal>
+                    <div class="contact-info ri">
                         <span class="section-tag">Get In Touch</span>
                         <h2 class="contact-heading">Let's build something<br><span class="text-cyan">secure</span>
                             together.</h2>
@@ -333,29 +304,22 @@
                         <div class="contact-details">
                             <div class="contact-detail">
                                 <div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
-                                <div>
-                                    <span class="detail-label">Email</span>
-                                    <a href="mailto:hello@unitybridge.com">hello@unitybridge.com</a>
-                                </div>
+                                <div><span class="detail-label">Email</span><a
+                                        href="mailto:hello@unitybridge.com">hello@unitybridge.com</a></div>
                             </div>
                             <div class="contact-detail">
                                 <div class="contact-detail-icon"><i class="fas fa-map-pin"></i></div>
-                                <div>
-                                    <span class="detail-label">Based in</span>
-                                    <span>Kenya 🇰🇪 &mdash; Serving globally</span>
-                                </div>
+                                <div><span class="detail-label">Based in</span><span>Kenya 🇰🇪 &mdash; Serving
+                                        globally</span></div>
                             </div>
                             <div class="contact-detail">
                                 <div class="contact-detail-icon"><i class="fas fa-clock"></i></div>
-                                <div>
-                                    <span class="detail-label">Response time</span>
-                                    <span>Within 24 hours</span>
-                                </div>
+                                <div><span class="detail-label">Response time</span><span>Within 24 hours</span></div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="contact-form-wrap" data-reveal data-delay="150">
+                    <div class="contact-form-wrap ri ri-d">
                         <form id="contact-form" action="https://formspree.io/f/yourformid" method="POST" novalidate>
                             <div class="form-row">
                                 <div class="form-group">
@@ -391,7 +355,7 @@
                                     Sending...</span>
                             </button>
                             <p class="privacy-note"><i class="fas fa-lock"></i> Your data is private and never shared.
-                                Unsubscribe anytime.</p>
+                            </p>
                         </form>
                         <div id="form-success" class="form-success" style="display:none">
                             <i class="fas fa-circle-check"></i>
@@ -399,14 +363,12 @@
                             <p>We'll get back to you within 24 hours.</p>
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
 
     </main>
 
-    <!-- ══ FOOTER ══ -->
     <footer>
         <div class="container footer-inner">
             <div class="footer-brand">
@@ -423,7 +385,7 @@
             <div class="footer-social">
                 <a href="#" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="#" target="_blank" rel="noopener" aria-label="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" target="_blank" rel="noopener" aria-label="Twitter/X"><i class="fab fa-x-twitter"></i></a>
             </div>
             <p class="footer-copy">&copy; 2025 Unity Bridge. All rights reserved. Built with ❤️ in Kenya.</p>
         </div>
