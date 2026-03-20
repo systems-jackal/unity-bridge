@@ -251,7 +251,7 @@ header {
     left: 0;
     right: 0;
     z-index: 500;
-    background: rgba(6, 15, 30, .65);
+    background: rgba(6, 15, 30, .85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
@@ -259,15 +259,15 @@ header {
 }
 
 header.scrolled {
-    background: rgba(6, 15, 30, .96);
-    box-shadow: 0 4px 40px rgba(0, 0, 0, .45);
+    background: rgba(6, 15, 30, .98);
+    box-shadow: 0 4px 40px rgba(0, 0, 0, .5);
 }
 
 header nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 72px;
+    height: 68px;
 }
 
 .nav-logo {
@@ -279,7 +279,6 @@ header nav {
 .nav-logo img {
     height: 42px;
     width: auto;
-    filter: drop-shadow(0 0 10px var(--cyan-glow));
 }
 
 .nav-logo span {
@@ -331,20 +330,40 @@ header nav {
 .hamburger {
     display: none;
     flex-direction: column;
+    justify-content: center;
     gap: 5px;
-    background: none;
-    border: none;
+    background: rgba(0, 200, 232, .08);
+    border: 1px solid var(--border);
+    border-radius: 8px;
     cursor: pointer;
-    padding: 6px;
+    padding: 10px 12px;
+    width: 44px;
+    height: 44px;
+    transition: background .2s, border-color .2s;
+}
+
+.hamburger:hover {
+    background: rgba(0, 200, 232, .15);
+    border-color: var(--cyan);
 }
 
 .hamburger span {
     display: block;
-    width: 24px;
+    width: 22px;
     height: 2px;
     background: var(--white);
     border-radius: 2px;
-    transition: transform .3s var(--ease), opacity .2s;
+    transition: transform .3s var(--ease), opacity .2s, background .2s;
+    pointer-events: none;
+}
+
+.hamburger.open {
+    background: rgba(0, 200, 232, .15);
+    border-color: var(--cyan);
+}
+
+.hamburger.open span {
+    background: var(--cyan);
 }
 
 .hamburger.open span:nth-child(1) {
@@ -353,6 +372,7 @@ header nav {
 
 .hamburger.open span:nth-child(2) {
     opacity: 0;
+    transform: scaleX(0);
 }
 
 .hamburger.open span:nth-child(3) {
@@ -1324,28 +1344,49 @@ footer {
 
     .nav-links {
         position: fixed;
-        top: 72px;
+        top: 68px;
         left: 0;
         right: 0;
         flex-direction: column;
         gap: 0;
-        background: rgba(6, 15, 30, .98);
-        backdrop-filter: blur(20px);
-        border-bottom: 1px solid var(--border);
+        background: #060f1e;
+        border-bottom: 2px solid var(--border);
+        border-top: 1px solid var(--border2);
         transform: translateY(-110%);
-        transition: transform .4s var(--ease);
-        z-index: 400;
+        opacity: 0;
+        transition: transform .35s var(--ease), opacity .3s var(--ease);
+        z-index: 490;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, .5);
     }
 
     .nav-links.open {
         transform: translateY(0);
+        opacity: 1;
+    }
+
+    .nav-links li {
+        width: 100%;
     }
 
     .nav-links li a {
-        display: block;
-        padding: 1.1rem 2rem;
-        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        font-size: .95rem;
+        letter-spacing: .8px;
         border-bottom: 1px solid var(--border2);
+        color: var(--off);
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+        color: var(--cyan);
+        background: rgba(0, 200, 232, .06);
+        padding-left: 2rem;
+    }
+
+    .nav-links li a::after {
+        display: none;
     }
 
     /* Hero — stack vertically, text centred */
