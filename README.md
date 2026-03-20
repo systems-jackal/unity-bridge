@@ -2,7 +2,7 @@
 
 ![Unity Bridge Logo](images/Tech%20Logo%20hero%20.png)
 
-Official website for [Unity Bridge](https://unitybridge.com) – a security-first technology startup providing affordable IT infrastructure, networking, and software solutions for small businesses and communities.
+Official website for [Unity Bridge](https://unitybridge.dev) – a security-first technology startup providing affordable IT infrastructure, networking, and software solutions for small businesses and communities.
 
 ## 🚀 About the Project
 
