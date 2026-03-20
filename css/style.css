@@ -366,9 +366,7 @@ header nav {
     align-items: center;
     padding: 8rem 0 5rem;
     overflow: hidden;
-    background:
-        radial-gradient(ellipse 70% 60% at 65% 55%, rgba(0, 100, 140, .18) 0%, transparent 70%),
-        linear-gradient(180deg, #060f1e 0%, #08162a 100%);
+    background: linear-gradient(180deg, #060f1e 0%, #08162a 100%);
 }
 
 #heroCanvas {
@@ -381,14 +379,7 @@ header nav {
 }
 
 .hero-glow {
-    position: absolute;
-    top: 20%;
-    right: 10%;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, rgba(0, 200, 232, .07) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
+    display: none;
 }
 
 .hero-grid {
@@ -487,32 +478,18 @@ header nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 200, 232, .05);
-    border: 1px solid var(--border);
+    background: transparent;
+    border: 1px solid var(--border2);
     border-radius: 50%;
-    box-shadow: 0 0 60px rgba(0, 200, 232, .1);
+    box-shadow: none;
 }
 
 .hero-logo-img {
     width: 180px;
     height: 180px;
     object-fit: contain;
-    filter: drop-shadow(0 0 18px var(--cyan-glow));
-    animation: pulse-logo 4s ease-in-out infinite;
-}
-
-@keyframes pulse-logo {
-
-    0%,
-    100% {
-        filter: drop-shadow(0 0 16px var(--cyan-glow));
-        transform: scale(1);
-    }
-
-    50% {
-        filter: drop-shadow(0 0 34px rgba(0, 200, 232, .65));
-        transform: scale(1.04);
-    }
+    filter: none;
+    animation: none;
 }
 
 .orbit-ring {
