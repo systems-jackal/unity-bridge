@@ -65,9 +65,9 @@ img {
 }
 
 .container {
-    max-width: 1160px;
+    max-width: 1380px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 4rem;
 }
 
 .text-cyan {
@@ -202,7 +202,7 @@ section {
 .section-sub {
     font-size: 1.05rem;
     color: var(--gray);
-    max-width: 560px;
+    max-width: 680px;
     margin: 0 auto;
 }
 
@@ -366,9 +366,9 @@ header nav {
 
 .hero-grid {
     display: grid;
-    grid-template-columns: 1fr 1.1fr;
+    grid-template-columns: 1.2fr 1fr;
     align-items: flex-start;
-    gap: 4rem;
+    gap: 3rem;
     position: relative;
     z-index: 1;
 }
@@ -412,7 +412,7 @@ header nav {
 .hero-sub {
     font-size: 1.05rem;
     color: var(--gray);
-    max-width: 480px;
+    max-width: 100%;
     line-height: 1.7;
     margin-bottom: 2.5rem;
 }
@@ -786,7 +786,7 @@ header nav {
 .why-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 5rem;
+    gap: 6rem;
     align-items: center;
 }
 
@@ -980,7 +980,7 @@ header nav {
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1.4fr;
-    gap: 5rem;
+    gap: 6rem;
     align-items: start;
 }
 
@@ -1259,8 +1259,8 @@ footer {
 ═══════════════════════════════════════ */
 @media (max-width:1024px) {
     .hero-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 2.5rem;
     }
 
     .hero-visual {
@@ -1533,7 +1533,7 @@ footer {
 
 @media (max-width:480px) {
     .container {
-        padding: 0 1rem;
+        padding: 0 1.2rem;
     }
 
     section {
