@@ -5,47 +5,33 @@
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursor-ring');
     if (!cursor || !ring) return;
-
     let mx = -200, my = -200, rx = -200, ry = -200;
-
     document.addEventListener('mousemove', e => {
         mx = e.clientX; my = e.clientY;
-        cursor.style.left = mx + 'px';
-        cursor.style.top = my + 'px';
+        cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
     });
-
     (function loop() {
-        rx += (mx - rx) * 0.13;
-        ry += (my - ry) * 0.13;
-        ring.style.left = rx + 'px';
-        ring.style.top = ry + 'px';
+        rx += (mx - rx) * 0.13; ry += (my - ry) * 0.13;
+        ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
         requestAnimationFrame(loop);
     })();
-
-    const sel = 'a, button, input, textarea, select, .service-card, .team-card, .pillar';
+    const sel = 'a,button,input,textarea,select,.service-card,.team-card,.pillar';
     document.addEventListener('mouseover', e => { if (e.target.closest(sel)) ring.classList.add('hovered'); });
     document.addEventListener('mouseout', e => { if (e.target.closest(sel)) ring.classList.remove('hovered'); });
 })();
 
 
-/* ── NAVBAR SCROLL ── */
+/* ── NAVBAR SCROLL + ACTIVE LINKS ── */
 (function () {
     const header = document.getElementById('navbar');
     const navLinks = document.querySelectorAll('.nav-links a');
     const sections = document.querySelectorAll('section[id]');
-
     function onScroll() {
         header.classList.toggle('scrolled', window.scrollY > 50);
-
         let current = '';
-        sections.forEach(s => {
-            if (window.scrollY >= s.offsetTop - 130) current = s.id;
-        });
-        navLinks.forEach(a => {
-            a.classList.toggle('active', a.getAttribute('href') === '#' + current);
-        });
+        sections.forEach(s => { if (window.scrollY >= s.offsetTop - 130) current = s.id; });
+        navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
     }
-
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 })();
@@ -59,46 +45,24 @@
     if (!btn || !menu) return;
 
     function openMenu() {
-        btn.classList.add('open');
-        menu.classList.add('open');
+        btn.classList.add('open'); menu.classList.add('open');
         btn.setAttribute('aria-expanded', 'true');
         document.body.style.overflow = 'hidden';
     }
-
     function closeMenu() {
-        btn.classList.remove('open');
-        menu.classList.remove('open');
+        btn.classList.remove('open'); menu.classList.remove('open');
         btn.setAttribute('aria-expanded', 'false');
         document.body.style.overflow = '';
     }
 
-    // Toggle on hamburger click
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', e => {
         e.stopPropagation();
         menu.classList.contains('open') ? closeMenu() : openMenu();
     });
-
-    // Close when a nav link is clicked
-    menu.querySelectorAll('a').forEach(a => {
-        a.addEventListener('click', closeMenu);
-    });
-
-    // Close when clicking outside the header
-    document.addEventListener('click', (e) => {
-        if (menu.classList.contains('open') && !header.contains(e.target)) {
-            closeMenu();
-        }
-    });
-
-    // Close on Escape key
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
-    });
-
-    // Close menu if window is resized to desktop width
-    window.addEventListener('resize', () => {
-        if (window.innerWidth > 768) closeMenu();
-    });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+    document.addEventListener('click', e => { if (menu.classList.contains('open') && !header.contains(e.target)) closeMenu(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu(); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 768) closeMenu(); });
 })();
 
 
@@ -108,13 +72,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
         const target = document.querySelector(this.getAttribute('href'));
         if (!target) return;
         e.preventDefault();
-        const offset = (document.getElementById('navbar') || { offsetHeight: 72 }).offsetHeight + 10;
+        const offset = (document.getElementById('navbar') || { offsetHeight: 68 }).offsetHeight + 10;
         window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
     });
 });
 
 
-/* ── HERO PARTICLES ── */
+/* ── HERO PARTICLES (orange theme) ── */
 (function () {
     const canvas = document.getElementById('heroCanvas');
     if (!canvas) return;
@@ -122,6 +86,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     let W, H;
     const COUNT = 80;
     const mouse = { x: -999, y: -999 };
+    const COLOR = '#E46A2E';
 
     function resize() {
         W = canvas.width = canvas.offsetWidth;
@@ -138,7 +103,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
             this.vy = -(0.2 + Math.random() * 0.5);
             this.life = rand ? Math.random() * 200 : 0;
             this.max = 180 + Math.random() * 240;
-            this.peak = 0.15 + Math.random() * 0.3;
+            this.peak = 0.12 + Math.random() * 0.22;
         }
         update() {
             this.x += this.vx; this.y += this.vy; this.life++;
@@ -156,8 +121,8 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
         draw() {
             ctx.save();
             ctx.globalAlpha = this.alpha();
-            ctx.fillStyle = '#E46A2E';
-            ctx.shadowColor = '#E46A2E';
+            ctx.fillStyle = COLOR;
+            ctx.shadowColor = COLOR;
             ctx.shadowBlur = this.r * 3;
             ctx.beginPath(); ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2); ctx.fill();
             ctx.restore();
@@ -202,12 +167,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 })();
 
 
-/* ── SCROLL REVEAL ── */
+/* ── SCROLL REVEAL (robust version) ── */
 (function () {
     const items = document.querySelectorAll('.ri');
     if (!items.length) return;
 
-    // If IntersectionObserver not supported, just show everything immediately
+    // No IntersectionObserver support — show everything immediately
     if (!('IntersectionObserver' in window)) {
         items.forEach(el => el.classList.add('visible'));
         return;
@@ -222,17 +187,15 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
             }
         });
     }, {
-        threshold: 0,           // fire as soon as ANY part enters viewport
-        rootMargin: '0px 0px 0px 0px'  // no negative margin — no elements get missed
+        threshold: 0,                  // fire the moment any pixel enters viewport
+        rootMargin: '0px 0px 0px 0px' // no negative offset — nothing gets missed
     });
 
     items.forEach(el => obs.observe(el));
 
-    // Safety fallback — if after 1.5s anything still invisible, force show it
+    // Hard fallback — force-show anything still hidden after 1.5s
     setTimeout(() => {
-        document.querySelectorAll('.ri:not(.visible)').forEach(el => {
-            el.classList.add('visible');
-        });
+        document.querySelectorAll('.ri:not(.visible)').forEach(el => el.classList.add('visible'));
     }, 1500);
 })();
 
@@ -246,13 +209,12 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
     form.addEventListener('submit', async e => {
         e.preventDefault();
-
         const name = form.querySelector('#name');
         const mail = form.querySelector('#email');
         const msg = form.querySelector('#message');
         let ok = true;
         [name, mail, msg].forEach(f => {
-            f.style.borderColor = f.value.trim() ? '' : '#f43f5e';
+            f.style.borderColor = f.value.trim() ? '' : '#E46A2E';
             if (!f.value.trim()) ok = false;
         });
         if (!ok) return;
@@ -280,14 +242,13 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
             if (!err) {
                 err = document.createElement('p');
                 err.className = 'form-error';
-                err.style.cssText = 'color:#f43f5e;font-size:.85rem;text-align:center;margin-top:.5rem';
+                err.style.cssText = 'color:#E46A2E;font-size:.85rem;text-align:center;margin-top:.5rem';
                 btn.after(err);
             }
             err.textContent = 'Something went wrong. Please email hello@unitybridge.com directly.';
         }
     });
-
-    form.querySelectorAll('input, textarea').forEach(f => {
+    form.querySelectorAll('input,textarea').forEach(f => {
         f.addEventListener('input', () => { f.style.borderColor = ''; });
     });
 })();
