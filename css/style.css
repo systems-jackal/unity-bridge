@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════
    UNITY BRIDGE — style.css
-   Theme: Bright Kenyan (light, orange accent)
+   Theme: Cobalt Blue (matches logo)
    Fonts: Syne (headings) + DM Sans (body)
 ═══════════════════════════════════════ */
 
@@ -11,16 +11,16 @@
     --dark: #1E2A32;
     --dark-light: #2A3A44;
     --gray: #5B6F7C;
-    --light-gray: #F0ECE6;
+    --light-gray: #D8E5F2;
     --white: #FFFFFF;
-    --off-white: #FDF9F4;
+    --off-white: #EEF3FA;
     --cobalt: #1B4B8A;
     --cobalt-dim: rgba(27, 75, 138, .08);
     --sapphire: #2C5FA8;
     --border: rgba(0, 0, 0, .08);
     --border2: rgba(0, 0, 0, .04);
-    --card-shadow: 0 10px 30px rgba(0, 0, 0, .04), 0 1px 2px rgba(0, 0, 0, .02);
-    --card-hover: 0 20px 40px rgba(0, 0, 0, .08);
+    --card-shadow: 0 10px 30px rgba(27, 75, 138, .06), 0 1px 2px rgba(27, 75, 138, .04);
+    --card-hover: 0 20px 40px rgba(27, 75, 138, .12);
     --ease: cubic-bezier(.4, 0, .2, 1);
     --r: 12px;
     --r-lg: 18px;
@@ -42,7 +42,7 @@ html {
 
 body {
     font-family: var(--font-body);
-    background: var(--off-white);
+    background: #EEF3FA;
     color: var(--dark);
     overflow-x: hidden;
     line-height: 1.65;
@@ -76,10 +76,7 @@ img {
 
 /* cursor effect removed */
 
-/* ── SCROLL REVEAL ──
-   Scoped to html.js — content stays visible
-   even if JS is blocked or fails to load.
-── */
+/* ── SCROLL REVEAL ── */
 html.js .ri {
     opacity: 0;
     transform: translateY(30px);
@@ -213,16 +210,16 @@ header {
     left: 0;
     right: 0;
     z-index: 500;
-    background: rgba(253, 249, 244, .95);
+    background: rgba(220, 232, 245, .92);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 1px solid rgba(27, 75, 138, .12);
     transition: background .4s var(--ease), box-shadow .4s;
 }
 
 header.scrolled {
-    background: rgba(253, 249, 244, .99);
-    box-shadow: 0 4px 40px rgba(0, 0, 0, .08);
+    background: rgba(210, 226, 242, .99);
+    box-shadow: 0 4px 40px rgba(27, 75, 138, .1);
 }
 
 header nav {
@@ -348,7 +345,7 @@ header nav {
     align-items: center;
     padding: 8rem 0 5rem;
     overflow: hidden;
-    background: linear-gradient(135deg, #f4f7fb 0%, #eef2f8 50%, #fdf6f0 100%);
+    background: linear-gradient(135deg, #dce8f5 0%, #c8daf0 45%, #d8e7f5 100%);
 }
 
 #heroCanvas {
@@ -576,7 +573,7 @@ header nav {
 .scroll-line {
     width: 1px;
     height: 40px;
-    background: linear-gradient(to bottom, var(--orange), transparent);
+    background: linear-gradient(to bottom, var(--cobalt), transparent);
     animation: scroll-pulse 2s ease-in-out infinite;
 }
 
@@ -594,8 +591,8 @@ header nav {
 
 /* ── SERVICES ── */
 .services {
-    background: var(--white);
-    border-top: 1px solid var(--border);
+    background: #F5F8FD;
+    border-top: 1px solid rgba(27, 75, 138, .1);
 }
 
 .services-grid {
@@ -778,9 +775,9 @@ header nav {
 
 /* ── WHY US ── */
 .why-us {
-    background: var(--off-white);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
+    background: #E4EDF8;
+    border-top: 1px solid rgba(27, 75, 138, .12);
+    border-bottom: 1px solid rgba(27, 75, 138, .12);
 }
 
 .why-grid {
@@ -816,7 +813,7 @@ header nav {
     gap: 1.2rem;
     align-items: flex-start;
     background: var(--white);
-    border: 1px solid var(--border);
+    border: 1px solid rgba(27, 75, 138, .1);
     border-radius: var(--r);
     padding: 1.3rem 1.5rem;
     box-shadow: var(--card-shadow);
@@ -857,7 +854,7 @@ header nav {
 
 /* ── TEAM ── */
 .team {
-    background: var(--white);
+    background: #F5F8FD;
 }
 
 .team-grid {
@@ -973,8 +970,8 @@ header nav {
 
 /* ── CONTACT ── */
 .contact {
-    background: var(--off-white);
-    border-top: 1px solid var(--border);
+    background: #E4EDF8;
+    border-top: 1px solid rgba(27, 75, 138, .12);
 }
 
 .contact-grid {
@@ -1078,8 +1075,8 @@ header nav {
 .form-group textarea,
 .form-group select {
     width: 100%;
-    background: var(--off-white);
-    border: 1px solid var(--border);
+    background: #EEF3FA;
+    border: 1px solid rgba(27, 75, 138, .15);
     border-radius: 8px;
     padding: .9rem 1rem;
     font-family: var(--font-body);
@@ -1166,8 +1163,8 @@ header nav {
 
 /* ── FOOTER ── */
 footer {
-    background: var(--white);
-    border-top: 1px solid var(--border);
+    background: #D4E2F0;
+    border-top: 1px solid rgba(27, 75, 138, .15);
     padding: 3rem 0;
 }
 
@@ -1318,14 +1315,14 @@ footer {
         right: 0;
         flex-direction: column;
         gap: 0;
-        background: var(--white);
-        border-bottom: 2px solid var(--border);
-        border-top: 1px solid var(--border);
+        background: #EEF3FA;
+        border-bottom: 2px solid rgba(27, 75, 138, .15);
+        border-top: 1px solid rgba(27, 75, 138, .1);
         transform: translateY(-110%);
         opacity: 0;
         transition: transform .35s var(--ease), opacity .3s var(--ease);
         z-index: 490;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, .06);
+        box-shadow: 0 8px 32px rgba(27, 75, 138, .08);
     }
 
     .nav-links.open {
@@ -1373,6 +1370,7 @@ footer {
         height: 320px;
         margin-left: 0;
         order: -1;
+        transform: translateY(0);
     }
 
     .ring-3 {
