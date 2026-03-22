@@ -347,7 +347,7 @@ header nav {
     display: flex;
     align-items: center;
     padding: 8rem 0 5rem;
-    overflow: hidden;
+    overflow: visible;
     background: linear-gradient(135deg, #f4f7fb 0%, #eef2f8 50%, #fdf6f0 100%);
 }
 
