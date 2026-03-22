@@ -367,8 +367,8 @@ header nav {
 .hero-grid {
     display: grid;
     grid-template-columns: 1fr 1.1fr;
-    align-items: center;
-    gap: 6rem;
+    align-items: flex-start;
+    gap: 4rem;
     position: relative;
     z-index: 1;
 }
@@ -458,8 +458,8 @@ header nav {
     align-items: center;
     justify-content: center;
     height: 520px;
-    margin-left: 9rem;
-    transform: translateY(-80px);
+    margin-left: -2rem;
+    transform: translateY(-60px);
 }
 
 .logo-glow-wrap {
@@ -1264,8 +1264,8 @@ footer {
     }
 
     .hero-visual {
-        margin-left: 3rem;
-        transform: translateY(-40px);
+        margin-left: 0;
+        transform: translateY(-30px);
     }
 
     .services-grid {
