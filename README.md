@@ -1,16 +1,21 @@
+markdown
 # Unity Bridge
 
-> **Your bridge to secure connectivity** — affordable, enterprise-grade IT for small businesses and communities.
+> **Bridging trust and technology – Your bridge to a secure unified digital ecosystem.**
 
 ![Unity Bridge](images/logo.png)
 
 ---
 
-## 🔒 About
+## 🔗 About
 
-**Unity Bridge** is a security-first technology startup founded by a computer security and forensics specialist. We bridge the gap between cutting-edge cybersecurity and everyday business technology — delivering reliable IT infrastructure, custom software, and ready-made solutions at prices that make sense for small businesses.
+**Unity Bridge** eliminates fragmented systems for small businesses and communities. We build **connected digital ecosystems** where your website, bookings, inventory, and security operate as one unified engine. No more scattered effort, no more lost revenue — just seamless growth.
 
-Live site: www.unitybridge.dev
+- **Security-first:** Every solution is hardened from the ground up.
+- **Affordable:** Enterprise-grade results without the enterprise price tag.
+- **Integrated:** We connect your tools so you can focus on your business.
+
+Live site: [https://unitybridge.dev](https://unitybridge.dev)
 
 ---
 
@@ -18,9 +23,9 @@ Live site: www.unitybridge.dev
 
 | Service | Description |
 |---|---|
-| 🌐 **Networking & Infrastructure** | Fiber/wireless connectivity, network monitoring, server hardening, firewalls, VPNs |
-| 💻 **Software Development** | Custom web & mobile apps, inventory systems, schedulers, learning portals |
-| 📦 **Ready-Made Solutions** | LMS, business performance tracker, e-commerce kits, offline POS *(coming soon)* |
+| 🌐 **Networking & Infrastructure** | High‑speed connectivity (fiber, wireless), network management, server hardening, security audits, firewalls, VPNs — all integrated with your software stack. |
+| 💻 **Software Development** | Custom apps (learning portals, business trackers, inventory management, appointment schedulers) built to share data seamlessly with your existing tools. |
+| 📦 **Ready‑Made Solutions** | Learning Management System, Business Performance Tracker, E‑commerce Starter Kits, Offline‑capable POS *(coming soon)* — plug‑and‑play, SEO‑ready, and built to connect. |
 
 ---
 
@@ -29,30 +34,29 @@ Live site: www.unitybridge.dev
 | Layer | Technology |
 |---|---|
 | Markup | HTML5 (semantic) |
-| Styling | CSS3 — custom properties, Flexbox, Grid, animations |
-| Fonts | [Syne](https://fonts.google.com/specimen/Syne) (display) + [DM Sans](https://fonts.google.com/specimen/DM+Sans) (body) |
+| Styling | CSS3 — custom properties, Flexbox, Grid, animations, cobalt + light blue theme |
+| Fonts | [Syne](https://fonts.google.com/specimen/Syne) (headings) + [DM Sans](https://fonts.google.com/specimen/DM+Sans) (body) |
 | Icons | [Font Awesome 6](https://fontawesome.com/) |
-| Scripts | Vanilla JavaScript (ES2020+) |
+| Scripts | Vanilla JavaScript (ES2020+) — particles, scroll reveal, form handling, responsive nav |
 | Forms | [Formspree](https://formspree.io/) |
 
-No frameworks. No build tools. Just clean, fast, dependency-light code.
+No frameworks, no build tools — just clean, fast, dependency‑light code.
 
 ---
 
 ## 📁 Project Structure
-
-```
 unity-bridge/
-├── index.html          # Main page — all sections
+├── index.html # Main page — all sections
 ├── css/
-│   └── style.css       # All styles — tokens, layout, components, responsive
+│ └── style.css # All styles — tokens, layout, components, responsive
 ├── js/
-│   └── main.js         # Interactions — cursor, particles, scroll reveal, form
+│ └── main.js # Interactions — particles, scroll reveal, form, mobile menu
 ├── images/
-│   ├── logo.png        # Unity Bridge logo (transparent background)
-│   └── favicon.png     # Browser tab icon
+│ ├── logo.png # Unity Bridge logo (transparent background)
+│ └── favicon.png # Browser tab icon
 └── README.md
-```
+
+text
 
 ---
 
@@ -71,47 +75,37 @@ open index.html
 # Or use a local server (recommended for form testing)
 npx serve .
 # then visit http://localhost:3000
-```
-
----
-
-## 🌐 Deployment
-
-The site is deployed via **GitHub Pages** from the `main` branch root.
+🌐 Deployment
+The site is deployed via GitHub Pages from the main branch root.
+Custom domain: unitybridge.dev (managed via Cloudflare).
 
 To deploy your own fork:
-1. Go to your repo → **Settings** → **Pages**
-2. Set source to `main` branch, `/ (root)` folder
-3. Save — your site will be live at `https://<username>.github.io/unity-bridge/`
 
----
+Go to your repo → Settings → Pages
 
-## 📬 Contact Form Setup
+Set source to main branch, / (root) folder
 
-The contact form uses [Formspree](https://formspree.io/). To activate it:
+Save — your site will be live at https://<username>.github.io/unity-bridge/
 
-1. Create a free account at [formspree.io](https://formspree.io/)
-2. Create a new form and copy your form ID
-3. In `index.html`, replace `yourformid` in the form action:
+📬 Contact Form Setup
+The contact form uses Formspree. To activate it:
 
-```html
+Create a free account at formspree.io
+
+Create a new form and copy your form ID
+
+In index.html, replace yourformid in the form action:
+
+html
 <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-```
-
----
-
-## 👥 Team
-
-| Name | Role | Specialties |
-|---|---|---|
-| **Dylan Kibet** | Founder & Lead Security Engineer | Server security, forensics, networking |
-| **Bernard Korir** | Network Architect | ISP installation, routing, automation |
-| **Ezra Tomno** | Software Developer | Full-stack, business apps, cloud |
-
----
-
-## 📄 License
-
-© 2025 Unity Bridge. All rights reserved.
+👥 Team
+Name	Role	Specialties
+Dylan Kibet	Founder & Lead Security Engineer	System architecture, backend , database design, DevOps, security hardening
+Bernard Korir	Product & Requirements Engineer	Requirements gathering, user stories, backlog management, sprint planning
+Ezra Tomno	Frontend Engineer & QA Lead	Frontend development, API integration, testing (unit/integration/E2E), quality assurance
+📄 License
+© 2026 Unity Bridge. All rights reserved.
 
 Built with ❤️ in Kenya 🇰🇪
+
+
