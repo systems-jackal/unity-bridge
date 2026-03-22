@@ -75,15 +75,10 @@ img {
 }
 
 /* ── SCROLL REVEAL — no JS dependency, always visible first ── */
+/* scroll reveal — content always visible, animation is enhancement only */
 .ri {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity .6s var(--ease), transform .6s var(--ease);
-}
-
-.ri.visible {
     opacity: 1;
-    transform: translateY(0);
+    transform: none;
 }
 
 .ri-d {
