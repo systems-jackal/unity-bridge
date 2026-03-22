@@ -74,43 +74,7 @@ img {
     color: var(--orange);
 }
 
-/* ── CURSOR ── */
-#cursor,
-#cursor-ring {
-    position: fixed;
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-}
-
-#cursor {
-    width: 8px;
-    height: 8px;
-    background: var(--orange);
-}
-
-#cursor-ring {
-    width: 34px;
-    height: 34px;
-    border: 1.5px solid rgba(228, 106, 46, .5);
-    transition: width .25s var(--ease), height .25s var(--ease), border-color .25s, background .25s;
-}
-
-#cursor-ring.hovered {
-    width: 50px;
-    height: 50px;
-    border-color: var(--orange);
-    background: rgba(228, 106, 46, .06);
-}
-
-@media (pointer:coarse) {
-
-    #cursor,
-    #cursor-ring {
-        display: none;
-    }
-}
+/* cursor effect removed */
 
 /* ── SCROLL REVEAL ──
    Scoped to html.js — content stays visible
