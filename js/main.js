@@ -207,17 +207,33 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     const items = document.querySelectorAll('.ri');
     if (!items.length) return;
 
+    // If IntersectionObserver not supported, just show everything immediately
+    if (!('IntersectionObserver' in window)) {
+        items.forEach(el => el.classList.add('visible'));
+        return;
+    }
+
     const obs = new IntersectionObserver(entries => {
-        entries.forEach(el => {
-            if (el.isIntersecting) {
-                const delay = el.target.classList.contains('ri-d') ? 180 : 0;
-                setTimeout(() => el.target.classList.add('visible'), delay);
-                obs.unobserve(el.target);
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const delay = entry.target.classList.contains('ri-d') ? 180 : 0;
+                setTimeout(() => entry.target.classList.add('visible'), delay);
+                obs.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    }, {
+        threshold: 0,           // fire as soon as ANY part enters viewport
+        rootMargin: '0px 0px 0px 0px'  // no negative margin — no elements get missed
+    });
 
     items.forEach(el => obs.observe(el));
+
+    // Safety fallback — if after 1.5s anything still invisible, force show it
+    setTimeout(() => {
+        document.querySelectorAll('.ri:not(.visible)').forEach(el => {
+            el.classList.add('visible');
+        });
+    }, 1500);
 })();
 
 
