@@ -26,6 +26,12 @@
             margin: 0;
             padding: 0;
         }
+
+        /* Ensure the heading doesn't clip descenders (like the tail of 'G') */
+        .hero-content h1 {
+            line-height: 1.2;
+            overflow: visible;
+        }
     </style>
     <script>document.documentElement.classList.replace('no-js', 'js');</script>
 </head>
@@ -63,14 +69,16 @@
             <div class="container hero-grid">
                 <div class="hero-content ri">
                     <div class="hero-tag"><i class="fas fa-shield-halved"></i> Security-First Technology</div>
-                    <h1>Websites that don’t sell.<br>Tools that refuse to connect.<br><span class="text-cyan">We
-                            eliminate fragmentation.</span></h1>
+                    <!-- Slogan placed BEFORE the main headline -->
                     <div class="hero-slogan">Bridging trust and technology – Your bridge to a secure unified digital
                         ecosystem</div>
+                    <h1>Websites that don’t sell.<br>Tools that refuse to connect.<br><span class="text-cyan">We
+                            eliminate fragmentation.</span></h1>
                     <p class="hero-sub">A website that doesn’t convert. Social posts with zero return. A booking app
                         that doesn’t talk to your inventory. Sound familiar? Unity Bridge builds <strong>connected
-                            digital ecosystems</strong> — where your website, bookings, inventory, and security operate
-                        as one unified engine. No more scattered effort. No more lost revenue. Just seamless growth.</p>
+                            digital ecosystems</strong> — not just websites, but complete systems where your website,
+                        bookings, inventory, and security operate as one unified engine. No more scattered effort. No
+                        more lost revenue. Just seamless growth.</p>
                     <div class="hero-buttons">
                         <a href="#contact" class="btn btn-primary"><i class="fas fa-arrow-right"></i> Get in Touch</a>
                         <a href="#story" class="btn btn-outline">Read Our Story</a>
