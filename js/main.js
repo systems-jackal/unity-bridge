@@ -68,7 +68,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     let W, H;
     const COUNT = 80;
     const mouse = { x: -999, y: -999 };
-    const COLOR = '#E46A2E';
+    const COLOR = '#00B4D8';
 
     function resize() {
         W = canvas.width = canvas.offsetWidth;
@@ -120,7 +120,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
                 const d = Math.sqrt(dx * dx + dy * dy);
                 if (d < 120) {
                     ctx.save();
-                    ctx.strokeStyle = `rgba(228,106,46,${(1 - d / 120) * 0.07})`;
+                    ctx.strokeStyle = `rgba(0,180,216,${(1 - d / 120) * 0.07})`;
                     ctx.lineWidth = 0.7;
                     ctx.beginPath(); ctx.moveTo(pts[i].x, pts[i].y); ctx.lineTo(pts[j].x, pts[j].y); ctx.stroke();
                     ctx.restore();
@@ -196,7 +196,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
         const msg = form.querySelector('#message');
         let ok = true;
         [name, mail, msg].forEach(f => {
-            f.style.borderColor = f.value.trim() ? '' : '#E46A2E';
+            f.style.borderColor = f.value.trim() ? '' : '#00B4D8';
             if (!f.value.trim()) ok = false;
         });
         if (!ok) return;
@@ -224,7 +224,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
             if (!err) {
                 err = document.createElement('p');
                 err.className = 'form-error';
-                err.style.cssText = 'color:#E46A2E;font-size:.85rem;text-align:center;margin-top:.5rem';
+                err.style.cssText = 'color:#00B4D8;font-size:.85rem;text-align:center;margin-top:.5rem';
                 btn.after(err);
             }
             err.textContent = 'Something went wrong. Please email hello@unitybridge.com directly.';
