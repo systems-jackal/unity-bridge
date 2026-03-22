@@ -21,7 +21,7 @@
         rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
-        /* Minimal inline style to prevent white flash: body background immediately set */
+        /* Prevent white flash */
         body {
             background-color: #FDF9F4;
             margin: 0;
@@ -32,6 +32,9 @@
 </head>
 
 <body>
+    <div id="cursor"></div>
+    <div id="cursor-ring"></div>
+
     <!-- NAV -->
     <header id="navbar">
         <nav class="container">
@@ -41,6 +44,7 @@
             </a>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#story">Our Story</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#team">Team</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -53,7 +57,6 @@
     </header>
 
     <main>
-
         <!-- HERO -->
         <section id="home" class="hero">
             <canvas id="heroCanvas"></canvas>
@@ -61,18 +64,17 @@
             <div class="container hero-grid">
                 <div class="hero-content ri">
                     <div class="hero-tag"><i class="fas fa-shield-halved"></i> Security-First Technology</div>
-                    <h1>Stop juggling.<br><span class="text-cyan">Connect.</span><br>Grow.</h1>
-                    <div class="hero-slogan">Bridging trust and technology – Your bridge to a secure unified digital
-                        ecosystem</div>
-                    <p class="hero-sub">A website that doesn’t sell. Social posts with zero return. Tools that refuse to
-                        talk to each other. Sound familiar? <strong>We solve fragmentation.</strong> Unity Bridge builds
+                    <h1>Websites that don’t sell.<br>Tools that refuse to connect.<br><span class="text-cyan">We
+                            eliminate fragmentation.</span></h1>
+                    <p class="hero-sub">A website that doesn’t convert. Social posts with zero return. A booking app
+                        that doesn’t talk to your inventory. Sound familiar? Unity Bridge builds
                         <strong>connected digital ecosystems</strong> — where your website, bookings, inventory, and
                         security operate as one unified engine. No more scattered effort. No more lost revenue. Just
                         seamless growth.
                     </p>
                     <div class="hero-buttons">
                         <a href="#contact" class="btn btn-primary"><i class="fas fa-arrow-right"></i> Get in Touch</a>
-                        <a href="#services" class="btn btn-outline">Explore Services</a>
+                        <a href="#story" class="btn btn-outline">Read Our Story</a>
                     </div>
                     <div class="hero-stats">
                         <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Connected</span>
@@ -103,7 +105,62 @@
             </div>
         </section>
 
-        <!-- SERVICES -->
+        <!-- OUR STORY (Founder-led) -->
+        <section id="story" class="why-us">
+            <div class="container">
+                <div class="why-grid">
+                    <div class="why-content ri">
+                        <span class="section-tag">Founder's Voice</span>
+                        <h2 class="why-heading">I started Unity Bridge because I saw small businesses drowning in
+                            disconnected tools.</h2>
+                        <p>I’m a computer security and forensics specialist. Over the years, I watched small business
+                            owners pour money into a website, then a separate booking app, then a POS from another
+                            vendor, and finally hire someone to “make it all work.” The result was always the same:
+                            data silos, security gaps, and a daily headache trying to juggle five different dashboards.
+                        </p>
+                        <p>The real cost isn’t just money — it’s the lost trust, the missed opportunities, and the
+                            frustration that kills motivation. I knew there had to be a better way.</p>
+                        <p><strong>That’s why Unity Bridge exists.</strong> We don’t sell isolated services. We build
+                            <strong>connected digital ecosystems</strong> where your website, bookings, inventory, and
+                            security operate as one unified engine. No more scattered effort. No more lost revenue. Just
+                            seamless growth.
+                        </p>
+                        <div class="hero-slogan" style="margin-top: 1.5rem; font-size: 1.2rem; font-style: italic;">
+                            <i class="fas fa-quote-left"></i> Bridging trust and technology – Your bridge to a secure
+                            unified digital ecosystem.
+                        </div>
+                    </div>
+                    <div class="why-pillars ri ri-d">
+                        <div class="pillar">
+                            <div class="pillar-icon"><i class="fas fa-eye"></i></div>
+                            <div>
+                                <h4>I saw the problem</h4>
+                                <p>Websites that don't convert. Social media with no strategy. Tools that refuse to talk
+                                    to each other.</p>
+                            </div>
+                        </div>
+                        <div class="pillar">
+                            <div class="pillar-icon"><i class="fas fa-bridge"></i></div>
+                            <div>
+                                <h4>We bridge the gaps</h4>
+                                <p>Every solution we deliver integrates with your existing tools — so you get a single,
+                                    coherent system.</p>
+                            </div>
+                        </div>
+                        <div class="pillar">
+                            <div class="pillar-icon"><i class="fas fa-chart-line"></i></div>
+                            <div>
+                                <h4>You focus on growth</h4>
+                                <p>Stop wrestling with technology. Start serving customers and watching your business
+                                    thrive.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES (unchanged from your latest) -->
         <section id="services" class="services">
             <div class="container">
                 <div class="section-header ri">
@@ -197,7 +254,7 @@
             </div>
         </section>
 
-        <!-- WHY US -->
+        <!-- WHY US (unchanged) -->
         <section class="why-us">
             <div class="container">
                 <div class="why-grid">
@@ -248,14 +305,14 @@
             </div>
         </section>
 
-        <!-- TEAM -->
+        <!-- TEAM (mature, professional bios) -->
         <section id="team" class="team">
             <div class="container">
                 <div class="section-header ri">
                     <span class="section-tag">The People</span>
                     <h2>Meet the Team</h2>
-                    <p class="section-sub">A focused team of specialists who've been in the trenches of real-world IT
-                        security and infrastructure.</p>
+                    <p class="section-sub">A focused group of specialists who’ve been in the trenches of real-world IT
+                        security, networking, and software engineering.</p>
                 </div>
                 <div class="team-grid">
 
@@ -269,8 +326,13 @@
                                 <h3>Dylan Kibet</h3>
                                 <p class="team-role">Founder &amp; Lead Security Engineer</p>
                                 <p class="team-spec">Server security · Forensics · Networking</p>
-                                <p class="team-bio">Computer security and forensics specialist driving Unity Bridge's
-                                    mission to democratise enterprise-grade security for small businesses.</p>
+                                <p class="team-bio">With a background in computer security and forensics, Dylan leads
+                                    the technical vision of Unity Bridge. He specialises in hardening servers, designing
+                                    secure networks, and ensuring that every piece of technology we deliver is built
+                                    with
+                                    security as the foundation. His drive comes from seeing small businesses struggle
+                                    with preventable security breaches and disconnected systems — and his goal is to
+                                    change that.</p>
                                 <div class="team-social">
                                     <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
                                         <i class="fab fa-linkedin"></i>
@@ -294,8 +356,11 @@
                                 <h3>Bernard Korir</h3>
                                 <p class="team-role">Network Architect</p>
                                 <p class="team-spec">ISP installation · Routing · Automation</p>
-                                <p class="team-bio">Designs and deploys reliable, scalable network infrastructure from
-                                    the ground up, specialising in last-mile connectivity solutions.</p>
+                                <p class="team-bio">Bernard brings over 5 years of hands‑on experience in designing and
+                                    deploying reliable network infrastructure. He specialises in last‑mile connectivity
+                                    solutions for underserved communities and has a passion for network automation using
+                                    modern tools. At Unity Bridge, he ensures that every client’s network is not only
+                                    fast but also resilient and future‑proof.</p>
                                 <div class="team-social">
                                     <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
                                         <i class="fab fa-linkedin"></i>
@@ -317,9 +382,12 @@
                             <div class="team-info">
                                 <h3>Ezra Tomno</h3>
                                 <p class="team-role">Software Developer</p>
-                                <p class="team-spec">Full-stack · Business apps · Cloud</p>
-                                <p class="team-bio">Builds clean, maintainable software that solves real business
-                                    problems — from inventory systems to cloud-integrated web platforms.</p>
+                                <p class="team-spec">Full‑stack · Business apps · Cloud</p>
+                                <p class="team-bio">Ezra is a full‑stack developer with a focus on building clean,
+                                    maintainable software that solves real business problems. He has worked on projects
+                                    ranging from inventory systems to cloud‑integrated web platforms. At Unity Bridge,
+                                    he crafts custom applications that seamlessly integrate with existing client
+                                    ecosystems, reducing manual work and boosting efficiency.</p>
                                 <div class="team-social">
                                     <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
                                         <i class="fab fa-linkedin"></i>
@@ -336,7 +404,7 @@
             </div>
         </section>
 
-        <!-- CONTACT -->
+        <!-- CONTACT (unchanged) -->
         <section id="contact" class="contact">
             <div class="container">
                 <div class="contact-grid">
@@ -435,6 +503,7 @@
             <p class="footer-tagline">Your bridge to a secure unified digital ecosystem.</p>
             <div class="footer-links">
                 <a href="#home">Home</a>
+                <a href="#story">Our Story</a>
                 <a href="#services">Services</a>
                 <a href="#team">Team</a>
                 <a href="#contact">Contact</a>
