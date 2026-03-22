@@ -1,524 +1,97 @@
-<!DOCTYPE html>
-<html lang="en" class="no-js">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unity Bridge – Connected Digital Ecosystems for Small Business</title>
-    <meta name="description"
-        content="We solve fragmented systems. Unity Bridge builds connected digital ecosystems — where your website, booking, inventory, and security work as one seamless system. Stop losing sales to disconnected tools; start growing.">
-    <meta property="og:title" content="Unity Bridge – Connected Digital Ecosystems">
-    <meta property="og:description"
-        content="We solve fragmented systems. Unity Bridge builds connected digital ecosystems — where your website, booking, inventory, and security work as one seamless system.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://unitybridge.dev/">
-    <meta property="og:image" content="images/logo.png">
-    <link rel="icon" type="image/png" href="images/favicon.png">
-    <link rel="apple-touch-icon" href="images/favicon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        body {
-            background-color: #FDF9F4;
-            margin: 0;
-            padding: 0;
-        }
-    </style>
-    <script>document.documentElement.classList.replace('no-js', 'js');</script>
-</head>
-
-<body>
-
-    <!-- NAV -->
-    <header id="navbar">
-        <nav class="container">
-            <a href="#home" class="nav-logo">
-                <img src="images/logo.png" alt="Unity Bridge Logo">
-                <span>Unity Bridge</span>
-            </a>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#story">Our Story</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#team">Team</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <a href="#contact" class="btn btn-nav">Get Started</a>
-            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
-                <span></span><span></span><span></span>
-            </button>
-        </nav>
-    </header>
-
-    <main>
-        <!-- HERO -->
-        <section id="home" class="hero">
-            <canvas id="heroCanvas"></canvas>
-            <div class="hero-glow"></div>
-            <div class="container hero-grid">
-                <div class="hero-content ri">
-                    <div class="hero-tag"><i class="fas fa-shield-halved"></i> Security-First Technology</div>
-                    <div class="hero-slogan">Bridging trust and technology – Your bridge to a secure unified digital
-                        ecosystem</div>
-                    <h1>We eliminate fragmented systems.<br><span class="text-cyan">One system, one engine, one
-                            business.</span></h1>
-                    <p class="hero-sub">A website that doesn’t convert. Social posts with zero return. A booking app
-                        that doesn’t talk to your inventory. Sound familiar? Unity Bridge builds <strong>connected
-                            digital ecosystems</strong> — not just websites, but complete systems where your website,
-                        bookings, inventory, and security operate as one unified engine. No more scattered effort. No
-                        more lost revenue. Just seamless growth.</p>
-                    <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary"><i class="fas fa-arrow-right"></i> Get in Touch</a>
-                        <a href="#story" class="btn btn-outline">Read Our Story</a>
-                    </div>
-                    <div class="hero-stats">
-                        <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Connected</span>
-                        </div>
-                        <div class="stat-divider"></div>
-                        <div class="stat"><span class="stat-num">3</span><span class="stat-label">Expert
-                                Specialists</span></div>
-                        <div class="stat-divider"></div>
-                        <div class="stat"><span class="stat-num">SMB</span><span class="stat-label">Focused</span></div>
-                    </div>
-                </div>
-                <div class="hero-visual ri ri-d">
-                    <div class="orbit-ring ring-1"></div>
-                    <div class="orbit-ring ring-2"></div>
-                    <div class="orbit-ring ring-3"></div>
-                    <div class="logo-glow-wrap">
-                        <img src="images/logo.png" alt="Unity Bridge" class="hero-logo-img">
-                    </div>
-                    <div class="orbit-dot dot-1"><i class="fas fa-shield-halved"></i></div>
-                    <div class="orbit-dot dot-2"><i class="fas fa-network-wired"></i></div>
-                    <div class="orbit-dot dot-3"><i class="fas fa-code"></i></div>
-                    <div class="orbit-dot dot-4"><i class="fas fa-lock"></i></div>
-                </div>
-            </div>
-            <div class="scroll-indicator">
-                <span>Scroll</span>
-                <div class="scroll-line"></div>
-            </div>
-        </section>
-
-        <!-- OUR STORY (reflecting new roles) -->
-        <section id="story" class="why-us">
-            <div class="container">
-                <div class="why-grid">
-                    <div class="why-content ri">
-                        <span class="section-tag">HOW IT ALL STARTED</span>
-                        <h2 class="why-heading">We started Unity Bridge because we saw businesses drowning in
-                            disconnected tools.</h2>
-                        <p>It began with a simple observation: small business owners pour money into a website, then a
-                            separate booking app, then a POS from another vendor, and finally hire someone to “make it
-                            all work.” The result was always the same – data silos, security gaps, and a daily headache
-                            juggling five different dashboards.</p>
-                        <p>Dylan, a computer security and forensics specialist, saw the root cause: nothing was
-                            connected. Bernard, with a knack for product thinking, kept seeing features built without
-                            clear requirements – leading to confusion and rework. Ezra, passionate about quality and
-                            user experience, watched the same bugs and integration failures repeat across projects.</p>
-                        <p>Together, we realised the problem wasn’t a lack of effort – it was a <strong>fragmented
-                                system</strong>. So we built Unity Bridge to replace fragmented systems with
-                            <strong>connected digital ecosystems</strong> – where your website, bookings, inventory,
-                            and security operate as one unified engine. No more scattered effort. No more lost revenue.
-                            Just seamless growth.
-                        </p>
-                        <div class="hero-slogan" style="margin-top: 1.5rem; font-size: 1.2rem; font-style: italic;">
-                            <i class="fas fa-quote-left"></i> Bridging trust and technology – Your bridge to a secure
-                            unified digital ecosystem.
-                        </div>
-                    </div>
-                    <div class="why-pillars ri ri-d">
-                        <div class="pillar">
-                            <div class="pillar-icon"><i class="fas fa-eye"></i></div>
-                            <div>
-                                <h4>We saw the problem</h4>
-                                <p>Websites that don't convert. Social media with no strategy. Tools that refuse to talk
-                                    to each other.</p>
-                            </div>
-                        </div>
-                        <div class="pillar">
-                            <div class="pillar-icon"><i class="fas fa-bridge"></i></div>
-                            <div>
-                                <h4>We bridge the gaps</h4>
-                                <p>Every solution we deliver integrates with your existing tools — so you get a single,
-                                    coherent system.</p>
-                            </div>
-                        </div>
-                        <div class="pillar">
-                            <div class="pillar-icon"><i class="fas fa-chart-line"></i></div>
-                            <div>
-                                <h4>You focus on growth</h4>
-                                <p>Stop wrestling with technology. Start serving customers and watching your business
-                                    thrive.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SERVICES (unchanged) -->
-        <section id="services" class="services">
-            <div class="container">
-                <div class="section-header ri">
-                    <span class="section-tag">What We Do</span>
-                    <h2>Our Services</h2>
-                    <p class="section-sub">We don’t just build websites or install software — we connect them into a
-                        single, secure, seamless system. Every service we offer is designed to integrate with your
-                        entire digital ecosystem.</p>
-                </div>
-                <div class="services-grid">
-                    <!-- Networking & Infrastructure -->
-                    <div class="service-card ri">
-                        <div class="service-icon-wrap">
-                            <div class="service-icon-bg"></div>
-                            <i class="fas fa-network-wired service-icon"></i>
-                        </div>
-                        <div class="service-num">01</div>
-                        <h3>Networking &amp; Infrastructure</h3>
-                        <p class="service-desc">The reliable, secure backbone that keeps your business running and all
-                            your tools connected.</p>
-                        <ul class="service-list">
-                            <li><i class="fas fa-check"></i><strong>Problem:</strong> Slow, unreliable internet;
-                                security gaps; systems that don’t talk to each other.</li>
-                            <li><i class="fas fa-check"></i><strong>Sectors:</strong> Retail, hospitality, co‑working
-                                spaces, clinics, schools, any business with multiple locations or digital operations.
-                            </li>
-                            <li><i class="fas fa-check"></i><strong>What we deliver:</strong> High‑speed connectivity,
-                                professional network management, hardened servers, and security that scales — all
-                                integrated with your software stack.</li>
-                        </ul>
-                        <div class="service-footer">
-                            <a href="#contact" class="service-link">Let’s secure your network <i
-                                    class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Software Development -->
-                    <div class="service-card featured ri">
-                        <div class="service-badge">Most Popular</div>
-                        <div class="service-icon-wrap">
-                            <div class="service-icon-bg"></div>
-                            <i class="fas fa-code service-icon"></i>
-                        </div>
-                        <div class="service-num">02</div>
-                        <h3>Software Development</h3>
-                        <p class="service-desc">Custom applications that fit your unique workflow and automatically
-                            connect to your existing systems.</p>
-                        <ul class="service-list">
-                            <li><i class="fas fa-check"></i><strong>Problem:</strong> Off‑the‑shelf software forces you
-                                to adapt your business; data silos create extra work.</li>
-                            <li><i class="fas fa-check"></i><strong>Sectors:</strong> Education (learning portals),
-                                retail (inventory management), service businesses (appointment schedulers, trackers),
-                                healthcare (patient management).</li>
-                            <li><i class="fas fa-check"></i><strong>What we deliver:</strong> Purpose‑built apps that
-                                share data seamlessly with your website, network, and other tools — no more manual data
-                                entry.</li>
-                        </ul>
-                        <div class="service-footer">
-                            <a href="#contact" class="service-link">Build your custom app <i
-                                    class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-
-                    <!-- Ready-Made Solutions -->
-                    <div class="service-card ri">
-                        <div class="service-icon-wrap">
-                            <div class="service-icon-bg"></div>
-                            <i class="fas fa-box service-icon"></i>
-                        </div>
-                        <div class="service-num">03</div>
-                        <h3>Ready-Made Solutions</h3>
-                        <p class="service-desc">Battle‑tested platforms that you can deploy in days and integrate with
-                            your existing tools.</p>
-                        <ul class="service-list">
-                            <li><i class="fas fa-check"></i><strong>Problem:</strong> You need a proven solution fast,
-                                but generic software often lacks essential integrations.</li>
-                            <li><i class="fas fa-check"></i><strong>Sectors:</strong> Education (LMS), retail
-                                (e‑commerce starter), service businesses (performance tracker, POS).</li>
-                            <li><i class="fas fa-check"></i><strong>What we deliver:</strong> Plug‑and‑play systems like
-                                Learning Management Systems, Business Trackers, E‑commerce Kits, and Offline‑capable POS
-                                (soon) — all built to connect to your existing infrastructure.</li>
-                        </ul>
-                        <div class="service-footer">
-                            <a href="#contact" class="service-link">Get a ready‑made solution <i
-                                    class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- WHY US -->
-        <section class="why-us">
-            <div class="container">
-                <div class="why-grid">
-                    <div class="why-content ri">
-                        <span class="section-tag">Why Unity Bridge</span>
-                        <h2 class="why-heading">Fragmented systems are the enemy.<br>We eliminate them.</h2>
-                        <p>Small businesses end up with a patchwork of disconnected tools: a website here, a booking app
-                            there, a POS from a different vendor, no unified security. The result? Wasted effort, lost
-                            sales, and frustrated owners. That’s a <strong>fragmented system</strong> — and it’s
-                            costing you.</p>
-                        <p style="margin-top:1rem">We build connected digital ecosystems — where every piece works
-                            together, stays secure, and actually grows your business. Because when your system is
-                            connected, your effort finally turns into results.</p>
-                        <a href="#contact" class="btn btn-primary" style="margin-top:2rem;display:inline-flex">
-                            <i class="fas fa-arrow-right"></i> Start a Conversation
-                        </a>
-                    </div>
-                    <div class="why-pillars ri ri-d">
-                        <div class="pillar">
-                            <div class="pillar-icon"><i class="fas fa-shield-halved"></i></div>
-                            <div>
-                                <h4>Security-First</h4>
-                                <p>Every decision — from architecture to deployment — starts with security.</p>
-                            </div>
-                        </div>
-                        <div class="pillar">
-                            <div class="pillar-icon"><i class="fas fa-hand-holding-dollar"></i></div>
-                            <div>
-                                <h4>Affordable</h4>
-                                <p>Enterprise-grade results at pricing that makes sense for small businesses.</p>
-                            </div>
-                        </div>
-                        <div class="pillar">
-                            <div class="pillar-icon"><i class="fas fa-people-group"></i></div>
-                            <div>
-                                <h4>Community-Driven</h4>
-                                <p>We grow when our clients grow. Your success is our metric.</p>
-                            </div>
-                        </div>
-                        <div class="pillar">
-                            <div class="pillar-icon"><i class="fas fa-bolt"></i></div>
-                            <div>
-                                <h4>Fast to Deploy</h4>
-                                <p>No endless back-and-forth. We move quickly and communicate clearly.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- TEAM (updated with new roles) -->
-        <section id="team" class="team">
-            <div class="container">
-                <div class="section-header ri">
-                    <span class="section-tag">The People</span>
-                    <h2>Meet the Team</h2>
-                    <p class="section-sub">A focused group of specialists who’ve been in the trenches of real-world IT
-                        security, product development, and quality engineering.</p>
-                </div>
-                <div class="team-grid">
-                    <div class="team-card ri">
-                        <div class="team-card-inner">
-                            <div class="team-avatar">
-                                <i class="fas fa-user-shield"></i>
-                                <div class="avatar-glow"></div>
-                            </div>
-                            <div class="team-info">
-                                <h3>Dylan Kibet</h3>
-                                <p class="team-role">Technical Lead / Backend &amp; Infrastructure</p>
-                                <p class="team-spec">System architecture · Backend (Java/Rust) · DevOps · Security</p>
-                                <p class="team-bio">Dylan drives the technical direction of Unity Bridge. He owns the
-                                    system architecture, backend services, infrastructure, and engineering standards.
-                                    He ensures the system is scalable, secure, and maintainable — from API design to
-                                    deployment pipelines. All critical technical decisions, technology choices, and
-                                    code quality reviews fall under his responsibility.</p>
-                                <div class="team-social">
-                                    <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
-                                        <i class="fab fa-linkedin"></i>
-                                    </a>
-                                    <a href="https://github.com/systems-jackal" target="_blank" rel="noopener"
-                                        aria-label="GitHub">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="team-card ri">
-                        <div class="team-card-inner">
-                            <div class="team-avatar">
-                                <i class="fas fa-clipboard-list"></i>
-                                <div class="avatar-glow"></div>
-                            </div>
-                            <div class="team-info">
-                                <h3>Bernard Korir</h3>
-                                <p class="team-role">Product &amp; Requirements Engineer</p>
-                                <p class="team-spec">Requirements · User stories · Backlog · Product logic</p>
-                                <p class="team-bio">Bernard defines what we build. He gathers requirements, translates
-                                    them into user stories and acceptance criteria, and ensures every feature is
-                                    clearly specified before development. He manages the product backlog, leads sprint
-                                    planning, and defines user flows. His work guarantees that the team always builds
-                                    the right thing, with clarity and purpose.</p>
-                                <div class="team-social">
-                                    <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
-                                        <i class="fab fa-linkedin"></i>
-                                    </a>
-                                    <a href="#" target="_blank" rel="noopener" aria-label="GitHub">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="team-card ri">
-                        <div class="team-card-inner">
-                            <div class="team-avatar">
-                                <i class="fas fa-check-double"></i>
-                                <div class="avatar-glow"></div>
-                            </div>
-                            <div class="team-info">
-                                <h3>Ezra Tomno</h3>
-                                <p class="team-role">Frontend Engineer &amp; Quality Assurance Lead</p>
-                                <p class="team-spec">Frontend · API integration · Testing · Quality</p>
-                                <p class="team-bio">Ezra builds the user‑facing part of the system and leads quality
-                                    assurance. He implements responsive, accessible interfaces based on Bernard’s
-                                    requirements and ensures they integrate seamlessly with Dylan’s APIs. He designs
-                                    and executes tests (unit, integration, end‑to‑end), tracks bugs, and enforces
-                                    quality standards. Ezra has the authority to block releases if quality criteria
-                                    aren’t met.</p>
-                                <div class="team-social">
-                                    <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
-                                        <i class="fab fa-linkedin"></i>
-                                    </a>
-                                    <a href="#" target="_blank" rel="noopener" aria-label="GitHub">
-                                        <i class="fab fa-github"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CONTACT (unchanged) -->
-        <section id="contact" class="contact">
-            <div class="container">
-                <div class="contact-grid">
-                    <div class="contact-info ri">
-                        <span class="section-tag">Get In Touch</span>
-                        <h2 class="contact-heading">Ready to stop juggling?<br><span class="text-cyan">Let's
-                                connect</span> your systems.</h2>
-                        <p>Whether you need a full digital ecosystem or just one piece to integrate with the rest, we're
-                            here to help. No jargon, no sales pressure — just honest conversations about making your
-                            technology work for you.</p>
-                        <div class="contact-details">
-                            <div class="contact-detail">
-                                <div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
-                                <div>
-                                    <span class="detail-label">Email</span>
-                                    <a href="mailto:hello@unitybridge.com">hello@unitybridge.com</a>
-                                </div>
-                            </div>
-                            <div class="contact-detail">
-                                <div class="contact-detail-icon"><i class="fas fa-map-pin"></i></div>
-                                <div>
-                                    <span class="detail-label">Based in</span>
-                                    <span>Kenya 🇰🇪 &mdash; Serving globally</span>
-                                </div>
-                            </div>
-                            <div class="contact-detail">
-                                <div class="contact-detail-icon"><i class="fas fa-clock"></i></div>
-                                <div>
-                                    <span class="detail-label">Response time</span>
-                                    <span>Within 24 hours</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-form-wrap ri ri-d">
-                        <form id="contact-form" action="https://formspree.io/f/xaqpvrjr" method="POST" novalidate>
-                            <input type="hidden" name="_subject" value="New Enquiry — Unity Bridge Website">
-                            <input type="hidden" name="_next" value="https://unitybridge.dev/#contact">
-                            <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="name">Your Name</label>
-                                    <input type="text" id="name" name="name" placeholder="Dylan Kibet" required
-                                        autocomplete="name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email Address</label>
-                                    <input type="email" id="email" name="email" placeholder="you@example.com" required
-                                        autocomplete="email">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="service">Service Interest</label>
-                                <select id="service" name="service">
-                                    <option value="" disabled selected>Select a service...</option>
-                                    <option value="networking">Networking &amp; Infrastructure</option>
-                                    <option value="software">Software Development</option>
-                                    <option value="ready-made">Ready-Made Solutions</option>
-                                    <option value="other">Other / General Inquiry</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Tell Us About Your Project</label>
-                                <textarea id="message" name="message" rows="5"
-                                    placeholder="Describe your project, challenges, or questions..."
-                                    required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
-                                <span class="btn-text"><i class="fas fa-paper-plane"></i> Send Message</span>
-                                <span class="btn-loading" style="display:none">
-                                    <i class="fas fa-spinner fa-spin"></i> Sending...
-                                </span>
-                            </button>
-                            <p class="privacy-note"><i class="fas fa-lock"></i> Your data is private and never shared.
-                            </p>
-                        </form>
-                        <div id="form-success" class="form-success" style="display:none">
-                            <i class="fas fa-circle-check"></i>
-                            <h3>Message sent!</h3>
-                            <p>We'll get back to you within 24 hours.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container footer-inner">
-            <div class="footer-brand">
-                <img src="images/logo.png" alt="Unity Bridge" class="footer-logo">
-                <span>Unity Bridge</span>
-            </div>
-            <p class="footer-tagline">Your bridge to a secure unified digital ecosystem.</p>
-            <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#story">Our Story</a>
-                <a href="#services">Services</a>
-                <a href="#team">Team</a>
-                <a href="#contact">Contact</a>
-            </div>
-            <div class="footer-social">
-                <a href="https://github.com/systems-jackal" target="_blank" rel="noopener" aria-label="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="#" target="_blank" rel="noopener" aria-label="Twitter/X">
-                    <i class="fab fa-x-twitter"></i>
-                </a>
-            </div>
-            <p class="footer-copy">&copy; © 2026 Unity Bridge. All rights reserved. Built in Kenya 🌍</p>
+<!-- TEAM (enhanced with unifying statement and mission-aligned bios) -->
+<section id="team" class="team">
+    <div class="container">
+        <div class="section-header ri">
+            <span class="section-tag">The People</span>
+            <h2>Meet the Team</h2>
+            <p class="section-sub">We don’t just build software – we build a culture of connection. Our team is
+                structured exactly the way we design systems: with clear ownership, seamless collaboration, and an
+                obsession with eliminating fragmentation.</p>
         </div>
-    </footer>
+        <div class="team-grid">
+            <div class="team-card ri">
+                <div class="team-card-inner">
+                    <div class="team-avatar">
+                        <i class="fas fa-user-shield"></i>
+                        <div class="avatar-glow"></div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Dylan Kibet</h3>
+                        <p class="team-role">Technical Lead / Backend &amp; Infrastructure</p>
+                        <p class="team-spec">System architecture · Backend (Java/Rust) · DevOps · Security</p>
+                        <p class="team-bio">Dylan drives the technical direction of Unity Bridge. He owns the system
+                            architecture, backend services, infrastructure, and engineering standards. By designing
+                            scalable, secure systems from the ground up, he ensures that no part of the technology stack
+                            becomes a silo. All critical technical decisions – from API design to deployment pipelines –
+                            go through him, guaranteeing that the foundation of every ecosystem is solid and connected.
+                        </p>
+                        <div class="team-social">
+                            <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://github.com/systems-jackal" target="_blank" rel="noopener"
+                                aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <script src="js/main.js"></script>
-</body>
+            <div class="team-card ri">
+                <div class="team-card-inner">
+                    <div class="team-avatar">
+                        <i class="fas fa-clipboard-list"></i>
+                        <div class="avatar-glow"></div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Bernard Korir</h3>
+                        <p class="team-role">Product &amp; Requirements Engineer</p>
+                        <p class="team-spec">Requirements · User stories · Backlog · Product logic</p>
+                        <p class="team-bio">Bernard defines what we build. He translates ideas into crystal‑clear user
+                            stories and acceptance criteria, working closely with Dylan to validate technical
+                            feasibility. His clarity prevents misalignment and rework – the very fragmentation that
+                            kills projects. By managing the product backlog and leading sprint planning, he ensures the
+                            team always builds the right thing, with no ambiguity.</p>
+                        <div class="team-social">
+                            <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-</html>
+            <div class="team-card ri">
+                <div class="team-card-inner">
+                    <div class="team-avatar">
+                        <i class="fas fa-check-double"></i>
+                        <div class="avatar-glow"></div>
+                    </div>
+                    <div class="team-info">
+                        <h3>Ezra Tomno</h3>
+                        <p class="team-role">Frontend Engineer &amp; Quality Assurance Lead</p>
+                        <p class="team-spec">Frontend · API integration · Testing · Quality</p>
+                        <p class="team-bio">Ezra builds the user‑facing part of the system and leads quality assurance.
+                            He implements responsive, accessible interfaces based on Bernard’s requirements and ensures
+                            they integrate seamlessly with Dylan’s APIs. Through rigorous testing (unit, integration,
+                            end‑to‑end) and meticulous bug tracking, he verifies that every piece of the ecosystem works
+                            together. He has the authority to block releases that don’t meet quality standards – because
+                            a connected system is only as strong as its weakest link.</p>
+                        <div class="team-social">
+                            <a href="#" target="_blank" rel="noopener" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#" target="_blank" rel="noopener" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
