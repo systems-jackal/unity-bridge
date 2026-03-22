@@ -1,8 +1,7 @@
 /* ═══════════════════════════════════════
    UNITY BRIDGE — style.css
    Theme: Bright Kenyan (light, orange accent)
-   Fonts: Plus Jakarta Sans (headings) + Inter (body)
-   Updated: hero visual position & ring visibility
+   Fonts: Syne (headings) + DM Sans (body)
 ═══════════════════════════════════════ */
 
 :root {
@@ -25,8 +24,8 @@
     --ease: cubic-bezier(.4, 0, .2, 1);
     --r: 12px;
     --r-lg: 18px;
-    --font-head: 'Plus Jakarta Sans', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-head: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
 }
 
 *,
@@ -74,6 +73,8 @@ img {
 .text-cyan {
     color: var(--orange);
 }
+
+/* cursor effect removed */
 
 /* ── SCROLL REVEAL ──
    Scoped to html.js — content stays visible
@@ -346,7 +347,7 @@ header nav {
     display: flex;
     align-items: center;
     padding: 8rem 0 5rem;
-    overflow: visible;
+    overflow: hidden;
     background: linear-gradient(135deg, #f4f7fb 0%, #eef2f8 50%, #fdf6f0 100%);
 }
 
@@ -394,7 +395,7 @@ header nav {
     font-size: clamp(3rem, 5.5vw, 4.8rem);
     font-weight: 800;
     color: var(--dark);
-    line-height: 1.3;
+    line-height: 1.08;
     letter-spacing: -2px;
     margin-bottom: 1.5rem;
 }
@@ -451,25 +452,42 @@ header nav {
     background: var(--border);
 }
 
-/* UPDATED: hero visual – raised, shifted right */
 .hero-visual {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 520px;
-    margin-left: 5rem;
-    /* more right */
-    transform: translateY(-30px);
-    /* raised upward */
+    margin-left: 9rem;
+    transform: translateY(-80px);
 }
 
-/* UPDATED: orbit rings – more visible (thicker, higher opacity) */
+.logo-glow-wrap {
+    position: relative;
+    z-index: 2;
+    width: 240px;
+    height: 240px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(27, 75, 138, .03);
+    border: 1px solid rgba(27, 75, 138, .14);
+    border-radius: 50%;
+    box-shadow: 0 0 32px rgba(27, 75, 138, .06);
+}
+
+.hero-logo-img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    filter: none;
+    animation: none;
+}
+
 .orbit-ring {
     position: absolute;
     border-radius: 50%;
-    border: 2px solid rgba(27, 75, 138, 0.25);
-    /* thicker, more visible */
+    border: 2px solid rgba(27, 75, 138, .25);
 }
 
 .ring-1 {
@@ -483,14 +501,14 @@ header nav {
     height: 400px;
     animation: spin 22s linear infinite reverse;
     border-style: dashed;
-    border-color: rgba(27, 75, 138, 0.2);
+    border-color: rgba(27, 75, 138, .20);
 }
 
 .ring-3 {
     width: 500px;
     height: 500px;
     animation: spin 30s linear infinite;
-    border-color: rgba(27, 75, 138, 0.15);
+    border-color: rgba(27, 75, 138, .15);
 }
 
 @keyframes spin {
@@ -1246,8 +1264,8 @@ footer {
     }
 
     .hero-visual {
-        margin-left: 2rem;
-        transform: translateY(-15px);
+        margin-left: 3rem;
+        transform: translateY(-40px);
     }
 
     .services-grid {
@@ -1355,8 +1373,6 @@ footer {
         height: 320px;
         margin-left: 0;
         order: -1;
-        transform: translateY(0);
-        /* reset raising on mobile */
     }
 
     .ring-3 {
