@@ -163,17 +163,22 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     const obs = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const delay = entry.target.classList.contains('ri-d') ? 180 : 0;
+                const delay = entry.target.classList.contains('ri-d') ? 150 : 0;
                 setTimeout(() => entry.target.classList.add('visible'), delay);
                 obs.unobserve(entry.target);
             }
         });
-    }, {
-        threshold: 0,                  // fire the moment any pixel enters viewport
-        rootMargin: '0px 0px 0px 0px' // no negative offset — nothing gets missed
-    });
+    }, { threshold: 0, rootMargin: '0px' });
 
     items.forEach(el => obs.observe(el));
+
+    // Show elements already in viewport immediately on load
+    window.addEventListener('load', () => {
+        items.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight) el.classList.add('visible');
+        });
+    }, { once: true });
 
     // Hard fallback — force-show anything still hidden after 1.5s
     setTimeout(() => {
