@@ -14,6 +14,9 @@
     --light-gray: #F0ECE6;
     --white: #FFFFFF;
     --off-white: #FDF9F4;
+    --cobalt: #1B4B8A;
+    --cobalt-dim: rgba(27, 75, 138, .08);
+    --sapphire: #2C5FA8;
     --border: rgba(0, 0, 0, .08);
     --border2: rgba(0, 0, 0, .04);
     --card-shadow: 0 10px 30px rgba(0, 0, 0, .04), 0 1px 2px rgba(0, 0, 0, .02);
@@ -381,7 +384,7 @@ header nav {
     align-items: center;
     padding: 8rem 0 5rem;
     overflow: hidden;
-    background: linear-gradient(135deg, #fff5ed 0%, #ffefe2 100%);
+    background: linear-gradient(135deg, #f4f7fb 0%, #eef2f8 50%, #fdf6f0 100%);
 }
 
 #heroCanvas {
@@ -518,7 +521,7 @@ header nav {
 .orbit-ring {
     position: absolute;
     border-radius: 50%;
-    border: 1px solid rgba(0, 0, 0, .08);
+    border: 1px solid rgba(27, 75, 138, .12);
 }
 
 .ring-1 {
@@ -532,14 +535,14 @@ header nav {
     height: 400px;
     animation: spin 22s linear infinite reverse;
     border-style: dashed;
-    border-color: rgba(0, 0, 0, .05);
+    border-color: rgba(27, 75, 138, .08);
 }
 
 .ring-3 {
     width: 500px;
     height: 500px;
     animation: spin 30s linear infinite;
-    border-color: rgba(0, 0, 0, .04);
+    border-color: rgba(27, 75, 138, .06);
 }
 
 @keyframes spin {
@@ -553,14 +556,14 @@ header nav {
     width: 40px;
     height: 40px;
     background: var(--white);
-    border: 1px solid rgba(0, 0, 0, .08);
+    border: 1px solid rgba(27, 75, 138, .18);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: .88rem;
-    color: var(--orange);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, .06);
+    color: var(--cobalt);
+    box-shadow: 0 4px 14px rgba(27, 75, 138, .1);
     z-index: 3;
 }
 
