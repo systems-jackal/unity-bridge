@@ -18,7 +18,6 @@
 
         body {
             font-family: 'Nunito', sans-serif;
-            /* Deep dark green gradient: black-green at top, jungle green at bottom */
             background: linear-gradient(145deg, #041010 0%, #0F2F2F 100%);
             color: #ffffff;
             line-height: 1.5;
@@ -46,6 +45,21 @@
             align-items: center;
             padding: 18px 0;
             flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .logo {
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .logo:hover {
+            color: #b5e377;
         }
 
         .nav-links {
@@ -541,14 +555,6 @@
             color: #aaaaaa;
         }
 
-        .mono-title {
-            font-family: 'Fira Code', 'Courier New', monospace;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-            font-size: 1.5rem;
-            margin-bottom: 8px;
-        }
-
         @media (max-width: 1024px) {
 
             .about-grid,
@@ -562,8 +568,15 @@
         }
 
         @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
             .nav-links {
-                display: none;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 1rem;
             }
 
             .hero h1 {
@@ -608,8 +621,8 @@
     <header>
         <div class="container">
             <nav>
+                <a href="#about" class="logo">UNITY BRIDGE</a>
                 <ul class="nav-links">
-                    <li><a href="UNITY BRIDGE">UNITY BRIDGE</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#why">Why Us</a></li>
@@ -859,7 +872,8 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <div class="mono-title">Unity Bridge</div>
+                    <div style="font-family: 'Fira Code', monospace; font-size: 1.3rem; font-weight: 600;">UNITY BRIDGE
+                    </div>
                     <p>Your bridge to a secure unified digital ecosystem.</p>
                 </div>
                 <div class="footer-links">
