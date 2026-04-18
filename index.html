@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Unity Bridge | Secure Digital Ecosystems</title>
     <!-- Favicon: Blue Shield (SVG) -->
     <link rel="icon" type="image/svg+xml"
@@ -54,7 +54,6 @@
             -webkit-overflow-scrolling: touch;
         }
 
-        /* Hide scrollbar for cleaner look (optional) */
         .horizontal-scroll::-webkit-scrollbar {
             display: none;
         }
@@ -73,10 +72,10 @@
             z-index: 1;
             padding: 80px 0 60px;
             display: flex;
-            align-items: center;
+            align-items: flex-start;
         }
 
-        /* Header remains fixed on top, independent of horizontal scroll */
+        /* Header fixed on top */
         header {
             position: fixed;
             top: 0;
@@ -428,6 +427,7 @@
             display: grid;
             grid-template-columns: 1fr 1.4fr;
             gap: 50px;
+            margin-bottom: 60px;
         }
 
         .contact-info h2 {
@@ -533,6 +533,7 @@
             border-radius: 32px;
             padding: 48px 40px;
             text-align: center;
+            margin: 60px 0;
         }
 
         .newsletter h2 {
@@ -569,7 +570,7 @@
         footer {
             border-top: 1px solid rgba(59, 130, 246, 0.2);
             padding: 40px 0 32px;
-            margin-top: 40px;
+            margin-top: 20px;
             background: #030706;
         }
 
@@ -657,54 +658,50 @@
             transform: translateY(-3px);
         }
 
-        @media (max-width:1024px) {
-
-            .about-grid,
-            .services-grid,
-            .team-grid,
-            .footer-grid,
-            .why-grid,
-            .contact-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width:768px) {
-            nav {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .nav-links {
-                justify-content: center;
-                flex-wrap: wrap;
-                gap: 1rem;
+        /* ========== MOBILE RESPONSIVENESS (phones) ========== */
+        @media (max-width: 768px) {
+            .panel {
+                padding: 100px 0 40px;
             }
 
             .hero h1 {
                 font-size: 2.2rem;
             }
 
+            .hero p {
+                font-size: 1rem;
+            }
+
             .section-title {
                 font-size: 1.8rem;
+                margin-bottom: 32px;
             }
 
             .about-grid,
             .services-grid,
             .team-grid,
             .why-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
+            .contact-grid,
+            .footer-grid {
+                grid-template-columns: 1fr !important;
+                gap: 20px !important;
             }
 
-            .why-grid,
+            .why-grid {
+                gap: 30px !important;
+            }
+
             .contact-grid {
-                gap: 30px;
+                gap: 30px !important;
             }
 
             .pillar {
                 flex-direction: column;
                 text-align: center;
+            }
+
+            .pillar i {
+                margin-bottom: 10px;
             }
 
             .newsletter form {
@@ -714,6 +711,103 @@
 
             .newsletter input {
                 width: 100%;
+                max-width: 300px;
+            }
+
+            .contact-form-wrap {
+                padding: 24px;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            .why-us,
+            .newsletter,
+            .contact-form-wrap {
+                padding: 32px 20px;
+            }
+
+            .service-card,
+            .about-card,
+            .team-card {
+                padding: 24px 16px;
+            }
+
+            .service-card i,
+            .about-card i,
+            .team-card i {
+                font-size: 2rem;
+            }
+
+            .service-card h3,
+            .about-card h3 {
+                font-size: 1.2rem;
+            }
+
+            .team-card h3 {
+                font-size: 1.4rem;
+            }
+
+            .team-bio {
+                font-size: 0.85rem;
+            }
+
+            .btn-primary,
+            .btn-outline {
+                padding: 10px 20px;
+                font-size: 0.8rem;
+            }
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .nav-links a {
+                font-size: 0.75rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .back-to-start {
+                width: 40px;
+                height: 40px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 0.9rem;
+            }
+
+            .service-card p,
+            .about-card p,
+            .team-bio {
+                font-size: 0.85rem;
+            }
+
+            .contact-info h2 {
+                font-size: 1.6rem;
+            }
+
+            .footer-grid {
+                text-align: center;
+            }
+
+            .social-icons a {
+                margin: 0 10px;
             }
         }
     </style>
@@ -973,7 +1067,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="newsletter" style="margin-top: 60px;">
+                <div class="newsletter">
                     <h2>Join Our Newsletter</h2>
                     <p>Get the latest insights on digital ecosystems, security trends, and early access to new
                         solutions.</p>
@@ -981,7 +1075,7 @@
                             type="email" placeholder="Email address" required><button type="submit"
                             class="btn-primary">Subscribe</button></form>
                 </div>
-                <footer style="margin-top: 60px;">
+                <footer>
                     <div class="footer-grid">
                         <div>
                             <div style="font-family:'Fira Code',monospace; font-size:1.3rem; font-weight:600;">UNITY
