@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unity Bridge | Secure Digital Ecosystems</title>
-    <!-- Favicon placeholder (replace with your own) -->
-    <link rel="icon" type="image/png"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌉%3C/text%3E%3C/svg%3E">
+    <!-- Shield favicon (SVG) -->
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23b5e377' d='M50 10 L10 30 L10 60 C10 80 30 95 50 100 C70 95 90 80 90 60 L90 30 L50 10 Z'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800;900&family=Nunito:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600;700&display=swap"
@@ -196,7 +196,6 @@
             color: #ffffff;
         }
 
-        /* Services grid – 3 columns on desktop */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -571,7 +570,6 @@
             color: #aaaaaa;
         }
 
-        /* Back to top button */
         .back-to-top {
             position: fixed;
             bottom: 30px;
@@ -953,13 +951,11 @@
         </div>
     </footer>
 
-    <!-- Back to top button -->
     <div class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </div>
 
     <script>
-        // Back to top button
         const backToTop = document.getElementById('backToTop');
         window.addEventListener('scroll', () => {
             if (window.scrollY > 300) {
