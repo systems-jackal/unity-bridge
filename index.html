@@ -153,13 +153,22 @@
         }
 
         .btn-outline {
-            border: 1px solid rgba(59, 130, 246, 0.5);
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: 0.2s;
+            font-family: 'Exo 2', sans-serif;
+            border: 1px solid rgba(59, 130, 246, 0.8);
             background: transparent;
             color: #CFD8D1;
+            cursor: pointer;
         }
 
         .btn-outline:hover {
-            background: rgba(59, 130, 246, 0.1);
+            background: rgba(59, 130, 246, 0.15);
+            transform: translateY(-2px);
         }
 
         .container {
@@ -661,7 +670,8 @@
         /* ========== MOBILE RESPONSIVENESS (phones) ========== */
         @media (max-width: 768px) {
             .panel {
-                padding: 100px 0 40px;
+                padding: 110px 0 40px;
+                /* extra top padding to avoid fixed header */
             }
 
             .hero h1 {
