@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Unity Bridge | Secure Digital Ecosystems</title>
-    <!-- Shield favicon (SVG) -->
+    <!-- Shield favicon (SVG) – accent color updated to #00FF9C -->
     <link rel="icon" type="image/svg+xml"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23b5e377' d='M50 10 L10 30 L10 60 C10 80 30 95 50 100 C70 95 90 80 90 60 L90 30 L50 10 Z'/%3E%3C/svg%3E">
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%2300FF9C' d='M50 10 L10 30 L10 60 C10 80 30 95 50 100 C70 95 90 80 90 60 L90 30 L50 10 Z'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600;700;800;900&family=Nunito:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600;700&display=swap"
@@ -21,8 +21,10 @@
 
         body {
             font-family: 'Nunito', sans-serif;
-            background: linear-gradient(145deg, #041010 0%, #0F2F2F 100%);
-            color: #ffffff;
+            background: #050806;
+            /* Matrix Dark background */
+            color: #A7C7B5;
+            /* soft green-gray text */
             line-height: 1.6;
             scroll-behavior: smooth;
         }
@@ -37,9 +39,9 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(3, 15, 7, 0.9);
+            background: rgba(5, 8, 6, 0.95);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(181, 227, 119, 0.2);
+            border-bottom: 1px solid rgba(0, 255, 156, 0.2);
         }
 
         nav {
@@ -56,13 +58,13 @@
             font-size: 1.4rem;
             font-weight: 600;
             letter-spacing: -0.5px;
-            color: #ffffff;
+            color: #A7C7B5;
             text-decoration: none;
             transition: color 0.2s;
         }
 
         .logo:hover {
-            color: #b5e377;
+            color: #00FF9C;
         }
 
         .nav-links {
@@ -73,14 +75,14 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #ffffff;
+            color: #A7C7B5;
             font-weight: 600;
             font-size: 0.9rem;
             transition: color 0.2s;
         }
 
         .nav-links a:hover {
-            color: #b5e377;
+            color: #00FF9C;
         }
 
         .btn {
@@ -96,23 +98,23 @@
         }
 
         .btn-primary {
-            background: #b5e377;
-            color: #051a0c;
+            background: #00FF9C;
+            color: #050806;
         }
 
         .btn-primary:hover {
-            background: #a0cf62;
+            background: #00E089;
             transform: translateY(-2px);
         }
 
         .btn-outline {
-            border: 1px solid rgba(181, 227, 119, 0.5);
+            border: 1px solid rgba(0, 255, 156, 0.5);
             background: transparent;
-            color: #ffffff;
+            color: #A7C7B5;
         }
 
         .btn-outline:hover {
-            background: rgba(181, 227, 119, 0.1);
+            background: rgba(0, 255, 156, 0.1);
         }
 
         .hero {
@@ -126,11 +128,11 @@
             font-family: 'Exo 2', sans-serif;
             line-height: 1.2;
             margin-bottom: 20px;
-            color: #ffffff;
+            color: #A7C7B5;
         }
 
         .hero h1 span {
-            color: #b5e377;
+            color: #00FF9C;
         }
 
         .hero p {
@@ -155,36 +157,36 @@
         }
 
         .about-card {
-            background: rgba(0, 0, 0, 0.45);
-            backdrop-filter: blur(4px);
+            background: #0E1A12;
+            /* secondary panel */
             border-radius: 24px;
             padding: 32px 20px;
             text-align: center;
-            border: 1px solid rgba(181, 227, 119, 0.25);
+            border: 1px solid rgba(0, 255, 156, 0.2);
             transition: 0.25s;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         .about-card:hover {
-            border-color: #b5e377;
+            border-color: #00FF9C;
             transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
         }
 
         .about-card i {
             font-size: 2.5rem;
-            color: #b5e377;
+            color: #00FF9C;
             margin-bottom: 20px;
         }
 
         .about-card h3 {
             font-size: 1.4rem;
             margin-bottom: 12px;
-            color: #ffffff;
+            color: #A7C7B5;
         }
 
         .about-card p {
-            color: #e0e0e0;
+            color: #8AA99A;
         }
 
         .section-title {
@@ -193,7 +195,7 @@
             font-weight: 700;
             text-align: center;
             margin-bottom: 48px;
-            color: #ffffff;
+            color: #A7C7B5;
         }
 
         .services-grid {
@@ -204,41 +206,40 @@
         }
 
         .service-card {
-            background: rgba(0, 0, 0, 0.45);
+            background: #0E1A12;
             border-radius: 24px;
             padding: 28px 20px;
-            backdrop-filter: blur(4px);
             transition: 0.2s;
-            border: 1px solid rgba(181, 227, 119, 0.2);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(0, 255, 156, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         .service-card:hover {
-            border-color: #b5e377;
+            border-color: #00FF9C;
             transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
         }
 
         .service-card i {
             font-size: 2.2rem;
-            color: #b5e377;
+            color: #00FF9C;
             margin-bottom: 20px;
         }
 
         .service-card h3 {
             font-size: 1.3rem;
             margin-bottom: 12px;
-            color: #ffffff;
+            color: #A7C7B5;
         }
 
         .service-card p {
-            color: #e0e0e0;
+            color: #8AA99A;
             font-size: 0.95rem;
             line-height: 1.6;
         }
 
         .why-us {
-            background: rgba(0, 0, 0, 0.35);
+            background: #0E1A12;
             border-radius: 32px;
             padding: 60px 40px;
             margin: 60px 0;
@@ -256,12 +257,12 @@
             font-family: 'Exo 2', sans-serif;
             font-weight: 700;
             margin-bottom: 1rem;
-            color: #ffffff;
+            color: #A7C7B5;
         }
 
         .why-content p {
             margin-bottom: 1rem;
-            color: #e0e0e0;
+            color: #8AA99A;
         }
 
         .why-pillars {
@@ -273,33 +274,33 @@
         .pillar {
             display: flex;
             gap: 20px;
-            background: rgba(0, 0, 0, 0.4);
+            background: #0B120E;
             border-radius: 24px;
             padding: 24px;
-            border: 1px solid rgba(181, 227, 119, 0.2);
+            border: 1px solid rgba(0, 255, 156, 0.2);
             transition: 0.2s;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         .pillar:hover {
-            border-color: #b5e377;
+            border-color: #00FF9C;
             transform: translateX(4px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         .pillar-icon {
             font-size: 2rem;
-            color: #b5e377;
+            color: #00FF9C;
         }
 
         .pillar h4 {
             font-size: 1.2rem;
             margin-bottom: 8px;
-            color: #ffffff;
+            color: #A7C7B5;
         }
 
         .pillar p {
-            color: #e0e0e0;
+            color: #8AA99A;
         }
 
         .team-grid {
@@ -310,30 +311,29 @@
         }
 
         .team-card {
-            background: rgba(0, 0, 0, 0.45);
+            background: #0E1A12;
             border-radius: 28px;
             padding: 32px 24px;
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(181, 227, 119, 0.2);
+            border: 1px solid rgba(0, 255, 156, 0.2);
             transition: 0.2s;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         .team-card:hover {
-            border-color: #b5e377;
+            border-color: #00FF9C;
             transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
         }
 
         .team-card h3 {
             font-size: 1.6rem;
             margin-bottom: 4px;
             font-family: 'Exo 2', sans-serif;
-            color: #ffffff;
+            color: #A7C7B5;
         }
 
         .team-card h4 {
-            color: #b5e377;
+            color: #00FF9C;
             font-size: 0.9rem;
             letter-spacing: 1px;
             margin-bottom: 12px;
@@ -342,18 +342,18 @@
         .team-role {
             font-weight: 700;
             margin: 12px 0 8px;
-            color: #ffffff;
+            color: #A7C7B5;
         }
 
         .team-spec {
             font-size: 0.85rem;
-            color: #b5e377;
+            color: #00FF9C;
             margin-bottom: 16px;
         }
 
         .team-bio {
             font-size: 0.9rem;
-            color: #e0e0e0;
+            color: #8AA99A;
             margin-bottom: 20px;
             line-height: 1.6;
         }
@@ -364,13 +364,13 @@
         }
 
         .team-social a {
-            color: #e0e0e0;
+            color: #8AA99A;
             font-size: 1.2rem;
             transition: 0.2s;
         }
 
         .team-social a:hover {
-            color: #b5e377;
+            color: #00FF9C;
         }
 
         .contact-grid {
@@ -384,12 +384,12 @@
             font-size: 2rem;
             font-family: 'Exo 2', sans-serif;
             margin-bottom: 16px;
-            color: #ffffff;
+            color: #A7C7B5;
         }
 
         .contact-info p {
             margin-bottom: 24px;
-            color: #e0e0e0;
+            color: #8AA99A;
         }
 
         .contact-details {
@@ -406,7 +406,7 @@
 
         .contact-detail-icon {
             font-size: 1.5rem;
-            color: #b5e377;
+            color: #00FF9C;
         }
 
         .detail-label {
@@ -414,14 +414,14 @@
             display: block;
             font-size: 0.8rem;
             text-transform: uppercase;
-            color: #b5e377;
+            color: #00FF9C;
         }
 
         .contact-form-wrap {
-            background: rgba(0, 0, 0, 0.45);
+            background: #0E1A12;
             border-radius: 32px;
             padding: 40px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         .form-row {
@@ -438,7 +438,7 @@
             display: block;
             margin-bottom: 8px;
             font-weight: 600;
-            color: #ffffff;
+            color: #A7C7B5;
         }
 
         .form-group input,
@@ -447,9 +447,9 @@
             width: 100%;
             padding: 12px 16px;
             border-radius: 16px;
-            border: 1px solid rgba(181, 227, 119, 0.3);
-            background: #1e2e22;
-            color: #ffffff;
+            border: 1px solid rgba(0, 255, 156, 0.3);
+            background: #0B120E;
+            color: #A7C7B5;
             font-family: inherit;
             outline: none;
         }
@@ -457,14 +457,14 @@
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
-            border-color: #b5e377;
+            border-color: #00FF9C;
         }
 
         .privacy-note {
             text-align: center;
             font-size: 0.8rem;
             margin-top: 16px;
-            color: #aaaaaa;
+            color: #6A8A7A;
         }
 
         .btn-full {
@@ -473,20 +473,20 @@
         }
 
         .newsletter {
-            background: rgba(0, 0, 0, 0.45);
+            background: #0E1A12;
             border-radius: 32px;
             padding: 48px 40px;
             text-align: center;
             margin: 60px 0;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         .newsletter h2 {
-            color: #ffffff;
+            color: #A7C7B5;
         }
 
         .newsletter p {
-            color: #e0e0e0;
+            color: #8AA99A;
         }
 
         .newsletter form {
@@ -501,22 +501,22 @@
             padding: 14px 20px;
             border-radius: 40px;
             border: none;
-            background: #1e2e22;
-            color: #ffffff;
+            background: #0B120E;
+            color: #A7C7B5;
             width: 280px;
             outline: none;
-            border: 1px solid rgba(181, 227, 119, 0.3);
+            border: 1px solid rgba(0, 255, 156, 0.3);
         }
 
         .newsletter input:focus {
-            border-color: #b5e377;
+            border-color: #00FF9C;
         }
 
         footer {
-            border-top: 1px solid rgba(181, 227, 119, 0.2);
+            border-top: 1px solid rgba(0, 255, 156, 0.2);
             padding: 40px 0 32px;
             margin-top: 40px;
-            background: #030f07;
+            background: #030704;
         }
 
         .footer-grid {
@@ -530,7 +530,7 @@
         .footer-social h4 {
             margin-bottom: 20px;
             font-size: 1.1rem;
-            color: #b5e377;
+            color: #00FF9C;
         }
 
         .footer-links ul {
@@ -543,23 +543,23 @@
 
         .footer-links a {
             text-decoration: none;
-            color: #e0e0e0;
+            color: #8AA99A;
             transition: 0.2s;
         }
 
         .footer-links a:hover {
-            color: #b5e377;
+            color: #00FF9C;
         }
 
         .social-icons a {
-            color: #e0e0e0;
+            color: #8AA99A;
             font-size: 1.5rem;
             margin-right: 20px;
             transition: 0.2s;
         }
 
         .social-icons a:hover {
-            color: #b5e377;
+            color: #00FF9C;
         }
 
         .copyright {
@@ -567,15 +567,15 @@
             padding-top: 24px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             font-size: 0.85rem;
-            color: #aaaaaa;
+            color: #6A8A7A;
         }
 
         .back-to-top {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background: #b5e377;
-            color: #051a0c;
+            background: #00FF9C;
+            color: #050806;
             width: 48px;
             height: 48px;
             border-radius: 50%;
@@ -597,7 +597,7 @@
         }
 
         .back-to-top:hover {
-            background: #a0cf62;
+            background: #00E089;
             transform: translateY(-3px);
         }
 
@@ -853,7 +853,7 @@
         <section id="contact" class="container">
             <div class="contact-grid">
                 <div class="contact-info">
-                    <h2>Ready to stop juggling?<br><span style="color:#b5e377;">Let’s connect</span> your systems.</h2>
+                    <h2>Ready to stop juggling?<br><span style="color:#00FF9C;">Let’s connect</span> your systems.</h2>
                     <p>Whether you need a full digital ecosystem or just one piece to integrate with the rest, we’re
                         here to help. No jargon, no sales pressure — just honest conversations about making your
                         technology work for you.</p>
@@ -861,7 +861,7 @@
                         <div class="contact-detail">
                             <div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
                             <div><span class="detail-label">Email</span> <a href="mailto:hello@unitybridge.dev"
-                                    style="color:#b5e377;">hello@unitybridge.dev</a></div>
+                                    style="color:#00FF9C;">hello@unitybridge.dev</a></div>
                         </div>
                         <div class="contact-detail">
                             <div class="contact-detail-icon"><i class="fas fa-map-pin"></i></div>
