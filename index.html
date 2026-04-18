@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>Unity Bridge | Secure Digital Ecosystems</title>
     <!-- Favicon: Blue Shield (SVG) -->
     <link rel="icon" type="image/svg+xml"
@@ -22,15 +22,14 @@
 
         body {
             font-family: 'Nunito', sans-serif;
-            /* Deep blue to black gradient – modern Kenyan sky at night */
             background: linear-gradient(145deg, #0a192f 0%, #000000 100%);
             color: #CFD8D1;
-            line-height: 1.6;
-            scroll-behavior: smooth;
             overflow-x: hidden;
+            overflow-y: auto;
+            scroll-behavior: smooth;
         }
 
-        /* Subtle Kenyan-inspired geometric pattern (abstract mountain/rift) */
+        /* Kenyan-inspired subtle pattern overlay */
         body::before {
             content: '';
             position: fixed;
@@ -43,28 +42,60 @@
             z-index: 0;
         }
 
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 24px;
-            position: relative;
-            z-index: 1;
+        /* Horizontal scroll container */
+        .horizontal-scroll {
+            display: flex;
+            flex-direction: row;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            height: 100vh;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
         }
 
+        /* Hide scrollbar for cleaner look (optional) */
+        .horizontal-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .horizontal-scroll {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Each section becomes a full-width panel */
+        .panel {
+            flex: 0 0 100vw;
+            scroll-snap-align: start;
+            overflow-y: auto;
+            position: relative;
+            z-index: 1;
+            padding: 80px 0 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Header remains fixed on top, independent of horizontal scroll */
         header {
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 100;
+            left: 0;
+            width: 100%;
+            z-index: 200;
             background: rgba(10, 25, 47, 0.85);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(59, 130, 246, 0.3);
+            padding: 12px 0;
         }
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 18px 0;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
             flex-wrap: wrap;
             gap: 20px;
         }
@@ -95,13 +126,15 @@
             font-weight: 600;
             font-size: 0.9rem;
             transition: color 0.2s;
+            cursor: pointer;
         }
 
-        .nav-links a:hover {
+        .nav-links a:hover,
+        .nav-links a.active {
             color: #3B82F6;
         }
 
-        .btn {
+        .btn-primary {
             display: inline-block;
             padding: 12px 28px;
             border-radius: 40px;
@@ -111,9 +144,6 @@
             font-family: 'Exo 2', sans-serif;
             border: none;
             cursor: pointer;
-        }
-
-        .btn-primary {
             background: #3B82F6;
             color: #000000;
         }
@@ -133,40 +163,16 @@
             background: rgba(59, 130, 246, 0.1);
         }
 
-        /* Scroll reveal animation (fade up + glow) */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
         }
 
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Text illuminating glow effect on hover / active sections */
-        .hero h1,
-        .section-title,
-        .about-card h3,
-        .service-card h3,
-        .pillar h4,
-        .team-card h3 {
-            transition: text-shadow 0.3s ease;
-        }
-
-        .hero h1:hover,
-        .section-title:hover,
-        .about-card h3:hover,
-        .service-card h3:hover,
-        .pillar h4:hover,
-        .team-card h3:hover {
-            text-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
-        }
-
+        /* Hero specific */
         .hero {
             text-align: center;
-            padding: 100px 0 80px;
         }
 
         .hero h1 {
@@ -196,11 +202,12 @@
             flex-wrap: wrap;
         }
 
+        /* About grid */
         .about-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 30px;
-            margin: 60px 0 80px;
+            margin-top: 30px;
         }
 
         .about-card {
@@ -211,13 +218,11 @@
             text-align: center;
             border: 1px solid rgba(59, 130, 246, 0.25);
             transition: 0.25s;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         .about-card:hover {
             border-color: #3B82F6;
             transform: translateY(-6px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
         }
 
         .about-card i {
@@ -249,7 +254,6 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            margin-bottom: 80px;
         }
 
         .service-card {
@@ -259,13 +263,11 @@
             padding: 28px 20px;
             transition: 0.2s;
             border: 1px solid rgba(59, 130, 246, 0.2);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         .service-card:hover {
             border-color: #3B82F6;
             transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
         }
 
         .service-card i {
@@ -291,7 +293,6 @@
             backdrop-filter: blur(4px);
             border-radius: 32px;
             padding: 60px 40px;
-            margin: 60px 0;
         }
 
         .why-grid {
@@ -327,14 +328,11 @@
             border-radius: 24px;
             padding: 24px;
             border: 1px solid rgba(59, 130, 246, 0.2);
-            transition: 0.2s;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         .pillar:hover {
             border-color: #3B82F6;
             transform: translateX(4px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         .pillar i {
@@ -356,7 +354,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            margin: 40px 0 60px;
+            margin-top: 20px;
         }
 
         .team-card {
@@ -365,14 +363,11 @@
             border-radius: 28px;
             padding: 32px 24px;
             border: 1px solid rgba(59, 130, 246, 0.2);
-            transition: 0.2s;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         .team-card:hover {
             border-color: #3B82F6;
             transform: translateY(-4px);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
         }
 
         .team-card i {
@@ -423,7 +418,6 @@
             color: #B0C4B5;
             font-size: 1.2rem;
             transition: 0.2s;
-            text-decoration: none;
         }
 
         .team-social a:hover {
@@ -434,7 +428,6 @@
             display: grid;
             grid-template-columns: 1fr 1.4fr;
             gap: 50px;
-            margin: 60px 0;
         }
 
         .contact-info h2 {
@@ -479,7 +472,6 @@
             backdrop-filter: blur(4px);
             border-radius: 32px;
             padding: 40px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         .form-row {
@@ -541,8 +533,6 @@
             border-radius: 32px;
             padding: 48px 40px;
             text-align: center;
-            margin: 60px 0;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
 
         .newsletter h2 {
@@ -635,7 +625,8 @@
             color: #8AA99A;
         }
 
-        .back-to-top {
+        /* Back to start button */
+        .back-to-start {
             position: fixed;
             bottom: 30px;
             right: 30px;
@@ -656,12 +647,12 @@
             z-index: 99;
         }
 
-        .back-to-top.show {
+        .back-to-start.show {
             opacity: 1;
             visibility: visible;
         }
 
-        .back-to-top:hover {
+        .back-to-start:hover {
             background: #2563EB;
             transform: translateY(-3px);
         }
@@ -730,312 +721,404 @@
 
 <body>
     <header>
-        <div class="container">
+        <div class="container" style="max-width:1280px; margin:0 auto; padding:0 24px;">
             <nav>
-                <a href="#about" class="logo">UNITY BRIDGE</a>
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#why">Why Us</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                <a href="#" class="logo" id="homeLink">UNITY BRIDGE</a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a data-section="about">About</a></li>
+                    <li><a data-section="services">Services</a></li>
+                    <li><a data-section="why">Why Us</a></li>
+                    <li><a data-section="team">Team</a></li>
+                    <li><a data-section="contact">Contact</a></li>
                 </ul>
-                <a href="#contact" class="btn btn-primary">Work with us</a>
+                <a href="#" class="btn-primary" id="contactBtn">Work with us</a>
             </nav>
         </div>
     </header>
 
-    <main>
-        <section id="about" class="hero reveal">
+    <!-- Horizontal scroll container -->
+    <div class="horizontal-scroll" id="horizontalScroll">
+        <!-- Panel 1: About (Hero + 4 pillars) -->
+        <section class="panel" id="panel-about">
             <div class="container">
-                <h1>Your bridge to a <span>secure unified digital ecosystem</span></h1>
-                <p>We build connected digital ecosystems — where your website, bookings, inventory, and security work as
-                    one seamless, revenue‑driving engine.</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Work with us</a>
-                    <a href="#services" class="btn btn-outline">Explore services</a>
+                <div class="hero">
+                    <h1>Your bridge to a <span>secure unified digital ecosystem</span></h1>
+                    <p>We build connected digital ecosystems — where your website, bookings, inventory, and security
+                        work as one seamless, revenue‑driving engine.</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn-primary" id="heroWorkBtn">Work with us</a>
+                        <a href="#" class="btn-outline" id="heroServicesBtn">Explore services</a>
+                    </div>
+                </div>
+                <div class="about-grid">
+                    <div class="about-card"><i class="fas fa-shield-alt"></i>
+                        <h3>Security‑First</h3>
+                        <p>Every architecture, every deployment starts with proactive defense.</p>
+                    </div>
+                    <div class="about-card"><i class="fas fa-project-diagram"></i>
+                        <h3>Connected Ecosystem</h3>
+                        <p>We eliminate data silos — all your tools talk to each other.</p>
+                    </div>
+                    <div class="about-card"><i class="fas fa-chart-line"></i>
+                        <h3>Revenue‑Driven</h3>
+                        <p>Technology that actually grows your business, not just another cost.</p>
+                    </div>
+                    <div class="about-card"><i class="fas fa-clock"></i>
+                        <h3>Fast Deployment</h3>
+                        <p>No endless back‑and‑forth. We move quickly and communicate clearly.</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="container reveal">
-            <div class="about-grid">
-                <div class="about-card"><i class="fas fa-shield-alt"></i>
-                    <h3>Security‑First</h3>
-                    <p>Every architecture, every deployment starts with proactive defense.</p>
-                </div>
-                <div class="about-card"><i class="fas fa-project-diagram"></i>
-                    <h3>Connected Ecosystem</h3>
-                    <p>We eliminate data silos — all your tools talk to each other.</p>
-                </div>
-                <div class="about-card"><i class="fas fa-chart-line"></i>
-                    <h3>Revenue‑Driven</h3>
-                    <p>Technology that actually grows your business, not just another cost.</p>
-                </div>
-                <div class="about-card"><i class="fas fa-clock"></i>
-                    <h3>Fast Deployment</h3>
-                    <p>No endless back‑and‑forth. We move quickly and communicate clearly.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="services" class="container reveal">
-            <h2 class="section-title">Our Services</h2>
-            <div class="services-grid">
-                <div class="service-card"><i class="fas fa-network-wired"></i>
-                    <h3>Networking & Infrastructure</h3>
-                    <p>Network setup, servers, firewalls, load balancing, monitoring. <strong>Nothing else works without
-                            stable infrastructure.</strong></p>
-                </div>
-                <div class="service-card"><i class="fas fa-cloud-upload-alt"></i>
-                    <h3>Cloud Security</h3>
-                    <p>IAM, hardening, encryption, VPCs, security baselines. <strong>We secure the environment
-                            itself.</strong></p>
-                </div>
-                <div class="service-card"><i class="fas fa-code"></i>
-                    <h3>Custom Software Development</h3>
-                    <p>Backend APIs, databases, business logic, integrations. <strong>We build the systems that run on
-                            the infrastructure.</strong></p>
-                </div>
-                <div class="service-card"><i class="fas fa-mobile-alt"></i>
-                    <h3>Mobile & Web Apps</h3>
-                    <p>React, Vue, Flutter, dashboards, portals. <strong>We build how users interact with
-                            systems.</strong></p>
-                </div>
-                <div class="service-card"><i class="fas fa-box"></i>
-                    <h3>Ready‑Made Solutions</h3>
-                    <p>LMS, e‑commerce, CRM, business trackers. <strong>We sell ready systems, not just development
-                            time.</strong></p>
-                </div>
-                <div class="service-card"><i class="fas fa-search"></i>
-                    <h3>Security Audits</h3>
-                    <p>Penetration testing, scanning, code review, compliance. <strong>We break and improve what we
-                            built.</strong></p>
-                </div>
-                <div class="service-card"><i class="fas fa-brain"></i>
-                    <h3>Threat Intelligence</h3>
-                    <p>Attack trends, OSINT, malware tracking, threat reports. <strong>We predict threats before they
-                            happen.</strong></p>
-                </div>
-                <div class="service-card"><i class="fas fa-user-shield"></i>
-                    <h3>Incident Response</h3>
-                    <p>Breach handling, recovery, forensics, containment. <strong>We respond when everything goes
-                            wrong.</strong></p>
+        <!-- Panel 2: Services -->
+        <section class="panel" id="panel-services">
+            <div class="container">
+                <h2 class="section-title">Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card"><i class="fas fa-network-wired"></i>
+                        <h3>Networking & Infrastructure</h3>
+                        <p>Network setup, servers, firewalls, load balancing, monitoring. <strong>Nothing else works
+                                without stable infrastructure.</strong></p>
+                    </div>
+                    <div class="service-card"><i class="fas fa-cloud-upload-alt"></i>
+                        <h3>Cloud Security</h3>
+                        <p>IAM, hardening, encryption, VPCs, security baselines. <strong>We secure the environment
+                                itself.</strong></p>
+                    </div>
+                    <div class="service-card"><i class="fas fa-code"></i>
+                        <h3>Custom Software Development</h3>
+                        <p>Backend APIs, databases, business logic, integrations. <strong>We build the systems that run
+                                on the infrastructure.</strong></p>
+                    </div>
+                    <div class="service-card"><i class="fas fa-mobile-alt"></i>
+                        <h3>Mobile & Web Apps</h3>
+                        <p>React, Vue, Flutter, dashboards, portals. <strong>We build how users interact with
+                                systems.</strong></p>
+                    </div>
+                    <div class="service-card"><i class="fas fa-box"></i>
+                        <h3>Ready‑Made Solutions</h3>
+                        <p>LMS, e‑commerce, CRM, business trackers. <strong>We sell ready systems, not just development
+                                time.</strong></p>
+                    </div>
+                    <div class="service-card"><i class="fas fa-search"></i>
+                        <h3>Security Audits</h3>
+                        <p>Penetration testing, scanning, code review, compliance. <strong>We break and improve what we
+                                built.</strong></p>
+                    </div>
+                    <div class="service-card"><i class="fas fa-brain"></i>
+                        <h3>Threat Intelligence</h3>
+                        <p>Attack trends, OSINT, malware tracking, threat reports. <strong>We predict threats before
+                                they happen.</strong></p>
+                    </div>
+                    <div class="service-card"><i class="fas fa-user-shield"></i>
+                        <h3>Incident Response</h3>
+                        <p>Breach handling, recovery, forensics, containment. <strong>We respond when everything goes
+                                wrong.</strong></p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section id="why" class="container why-us reveal">
-            <div class="why-grid">
-                <div class="why-content">
-                    <h2 class="why-heading">Fragmented systems are the enemy. We eliminate them.</h2>
-                    <p>We’ve seen the pattern too many times: a beautiful website that doesn’t sell. A booking app that
-                        doesn’t talk to the calendar. Security added as an afterthought. Each tool is built in
-                        isolation, but your business doesn’t work that way.</p>
-                    <p>Unity Bridge is our answer to that fragmentation. We build connected digital ecosystems – where
-                        every piece works together, stays secure, and actually grows your business. Because when your
-                        system is connected, your effort finally turns into results.</p>
-                    <a href="#contact" class="btn btn-primary" style="margin-top: 20px;">Start a Conversation</a>
+        <!-- Panel 3: Why Us -->
+        <section class="panel" id="panel-why">
+            <div class="container">
+                <div class="why-us">
+                    <div class="why-grid">
+                        <div class="why-content">
+                            <h2 class="why-heading">Fragmented systems are the enemy. We eliminate them.</h2>
+                            <p>We’ve seen the pattern too many times: a beautiful website that doesn’t sell. A booking
+                                app that doesn’t talk to the calendar. Security added as an afterthought. Each tool is
+                                built in isolation, but your business doesn’t work that way.</p>
+                            <p>Unity Bridge is our answer to that fragmentation. We build connected digital ecosystems –
+                                where every piece works together, stays secure, and actually grows your business.
+                                Because when your system is connected, your effort finally turns into results.</p>
+                            <a href="#" class="btn-primary" id="whyContactBtn"
+                                style="margin-top: 20px; display: inline-block;">Start a Conversation</a>
+                        </div>
+                        <div class="why-pillars">
+                            <div class="pillar"><i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <h4>Security-First</h4>
+                                    <p>Every decision — from architecture to deployment — starts with security.</p>
+                                </div>
+                            </div>
+                            <div class="pillar"><i class="fas fa-hand-holding-usd"></i>
+                                <div>
+                                    <h4>Affordable</h4>
+                                    <p>Enterprise-grade results at pricing that makes sense for small businesses.</p>
+                                </div>
+                            </div>
+                            <div class="pillar"><i class="fas fa-users"></i>
+                                <div>
+                                    <h4>Community-Driven</h4>
+                                    <p>We grow when our clients grow. Your success is our metric.</p>
+                                </div>
+                            </div>
+                            <div class="pillar"><i class="fas fa-bolt"></i>
+                                <div>
+                                    <h4>Fast to Deploy</h4>
+                                    <p>No endless back-and-forth. We move quickly and communicate clearly.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="why-pillars">
-                    <div class="pillar"><i class="fas fa-shield-alt"></i>
+            </div>
+        </section>
+
+        <!-- Panel 4: Team -->
+        <section class="panel" id="panel-team">
+            <div class="container">
+                <h2 class="section-title">Meet the Team</h2>
+                <p style="text-align: center; margin-bottom: 40px;">Three specialists who saw the same problem and
+                    decided to fix it together.</p>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <i class="fas fa-clipboard-list"></i>
+                        <h3>Bernard Korir</h3>
+                        <h4>CO‑FOUNDER</h4>
+                        <div class="team-role">Product & Requirements Engineer</div>
+                        <div class="team-spec">Requirements · User stories · Backlog · Product logic</div>
+                        <p class="team-bio">Bernard ensures we always build the right thing. He translates client needs
+                            into clear user stories, acceptance criteria, and product specifications. His structured
+                            approach eliminates guesswork, keeps development focused, and guarantees that every feature
+                            delivers real value.</p>
+                        <div class="team-social"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i
+                                    class="fab fa-github"></i></a></div>
+                    </div>
+                    <div class="team-card">
+                        <i class="fas fa-user-shield"></i>
+                        <h3>Dylan Kibet</h3>
+                        <h4>FOUNDER</h4>
+                        <div class="team-role">Lead Engineer & System Architect</div>
+                        <div class="team-spec">System architecture · Backend · Security · Infrastructure</div>
+                        <p class="team-bio">Dylan brings deep expertise in computer security and forensics. He leads
+                            technical development, from API design to deployment pipelines, ensuring every system is
+                            secure, scalable, and maintainable. He built Unity Bridge because he saw how fragmented
+                            systems create security holes and wasted effort.</p>
+                        <div class="team-social"><a href="https://www.linkedin.com/in/dylan-kibet-40ab96334/"
+                                target="_blank"><i class="fab fa-linkedin"></i></a><a
+                                href="https://github.com/systems-jackal" target="_blank"><i
+                                    class="fab fa-github"></i></a></div>
+                    </div>
+                    <div class="team-card">
+                        <i class="fas fa-check-double"></i>
+                        <h3>Ezra Tomno</h3>
+                        <h4>CO‑FOUNDER</h4>
+                        <div class="team-role">Frontend Engineer & Quality Lead</div>
+                        <div class="team-spec">Frontend · API integration · Testing · Quality</div>
+                        <p class="team-bio">Ezra builds the user‑facing part of every system and leads quality
+                            assurance. He implements responsive, accessible interfaces and ensures they integrate
+                            seamlessly with the backend. Ezra has the final say on quality – nothing ships unless it
+                            meets his standards.</p>
+                        <div class="team-social"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i
+                                    class="fab fa-github"></i></a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Panel 5: Contact + Newsletter + Footer -->
+        <section class="panel" id="panel-contact">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>Ready to stop juggling?<br><span style="color:#3B82F6;">Let’s connect</span> your systems.
+                        </h2>
+                        <p>Whether you need a full digital ecosystem or just one piece to integrate with the rest, we’re
+                            here to help. No jargon, no sales pressure — just honest conversations about making your
+                            technology work for you.</p>
+                        <div class="contact-details">
+                            <div class="contact-detail"><i class="fas fa-envelope"></i>
+                                <div><span class="detail-label">Email</span> <a href="mailto:hello@unitybridge.dev"
+                                        style="color:#3B82F6;">hello@unitybridge.dev</a></div>
+                            </div>
+                            <div class="contact-detail"><i class="fas fa-map-marker-alt"></i>
+                                <div><span class="detail-label">Based in</span> Kenya 🇰🇪 — Serving globally</div>
+                            </div>
+                            <div class="contact-detail"><i class="fas fa-clock"></i>
+                                <div><span class="detail-label">Response time</span> Within 24 hours</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form-wrap">
+                        <form id="contact-form" action="#" method="post">
+                            <div class="form-row">
+                                <div class="form-group"><label for="name">Your Name</label><input type="text" id="name"
+                                        name="name" placeholder="Your name" required></div>
+                                <div class="form-group"><label for="email">Email Address</label><input type="email"
+                                        id="email" name="email" placeholder="you@example.com" required></div>
+                            </div>
+                            <div class="form-group"><label for="service">Service Interest</label><select id="service"
+                                    name="service">
+                                    <option disabled selected>Select a service...</option>
+                                    <option>Networking & Infrastructure</option>
+                                    <option>Cloud Security</option>
+                                    <option>Custom Software Development</option>
+                                    <option>Mobile & Web Apps</option>
+                                    <option>Ready-Made Solutions</option>
+                                    <option>Security Audits</option>
+                                    <option>Threat Intelligence</option>
+                                    <option>Incident Response</option>
+                                </select></div>
+                            <div class="form-group"><label for="message">Tell Us About Your Project</label><textarea
+                                    id="message" name="message" rows="4"
+                                    placeholder="Describe your project, challenges, or questions..."
+                                    required></textarea></div>
+                            <button type="submit" class="btn-primary btn-full"><i class="fas fa-paper-plane"></i> Send
+                                Message</button>
+                            <p class="privacy-note"><i class="fas fa-lock"></i> Your data is private and never shared.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+                <div class="newsletter" style="margin-top: 60px;">
+                    <h2>Join Our Newsletter</h2>
+                    <p>Get the latest insights on digital ecosystems, security trends, and early access to new
+                        solutions.</p>
+                    <form action="#" method="post"><input type="text" placeholder="Your name" required><input
+                            type="email" placeholder="Email address" required><button type="submit"
+                            class="btn-primary">Subscribe</button></form>
+                </div>
+                <footer style="margin-top: 60px;">
+                    <div class="footer-grid">
                         <div>
-                            <h4>Security-First</h4>
-                            <p>Every decision — from architecture to deployment — starts with security.</p>
+                            <div style="font-family:'Fira Code',monospace; font-size:1.3rem; font-weight:600;">UNITY
+                                BRIDGE</div>
+                            <p>Your bridge to a secure unified digital ecosystem.</p>
+                        </div>
+                        <div class="footer-links">
+                            <h4>Quick Links</h4>
+                            <ul>
+                                <li><a href="#" data-section="about">About</a></li>
+                                <li><a href="#" data-section="services">Services</a></li>
+                                <li><a href="#" data-section="why">Why Us</a></li>
+                                <li><a href="#" data-section="team">Team</a></li>
+                                <li><a href="#" data-section="contact">Contact</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links">
+                            <h4>Legal</h4>
+                            <ul>
+                                <li><a href="#">Terms of Service</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-social">
+                            <h4>Connect</h4>
+                            <div class="social-icons"><a href="#" aria-label="Twitter"><i
+                                        class="fab fa-twitter"></i></a><a href="#" aria-label="LinkedIn"><i
+                                        class="fab fa-linkedin"></i></a><a href="#" aria-label="GitHub"><i
+                                        class="fab fa-github"></i></a></div>
                         </div>
                     </div>
-                    <div class="pillar"><i class="fas fa-hand-holding-usd"></i>
-                        <div>
-                            <h4>Affordable</h4>
-                            <p>Enterprise-grade results at pricing that makes sense for small businesses.</p>
-                        </div>
+                    <div class="copyright">
+                        <p>&copy; 2026 Unity Bridge. All rights reserved.</p>
                     </div>
-                    <div class="pillar"><i class="fas fa-users"></i>
-                        <div>
-                            <h4>Community-Driven</h4>
-                            <p>We grow when our clients grow. Your success is our metric.</p>
-                        </div>
-                    </div>
-                    <div class="pillar"><i class="fas fa-bolt"></i>
-                        <div>
-                            <h4>Fast to Deploy</h4>
-                            <p>No endless back-and-forth. We move quickly and communicate clearly.</p>
-                        </div>
-                    </div>
-                </div>
+                </footer>
             </div>
         </section>
+    </div>
 
-        <section id="team" class="container reveal">
-            <h2 class="section-title">Meet the Team</h2>
-            <p style="text-align: center; margin-bottom: 40px;">Three specialists who saw the same problem and decided
-                to fix it together.</p>
-            <div class="team-grid">
-                <div class="team-card">
-                    <i class="fas fa-clipboard-list"></i>
-                    <h3>Bernard Korir</h3>
-                    <h4>CO‑FOUNDER</h4>
-                    <div class="team-role">Product & Requirements Engineer</div>
-                    <div class="team-spec">Requirements · User stories · Backlog · Product logic</div>
-                    <p class="team-bio">Bernard ensures we always build the right thing. He translates client needs into
-                        clear user stories, acceptance criteria, and product specifications. His structured approach
-                        eliminates guesswork, keeps development focused, and guarantees that every feature delivers real
-                        value.</p>
-                    <div class="team-social"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i
-                                class="fab fa-github"></i></a></div>
-                </div>
-                <div class="team-card">
-                    <i class="fas fa-user-shield"></i>
-                    <h3>Dylan Kibet</h3>
-                    <h4>FOUNDER</h4>
-                    <div class="team-role">Lead Engineer & System Architect</div>
-                    <div class="team-spec">System architecture · Backend · Security · Infrastructure</div>
-                    <p class="team-bio">Dylan brings deep expertise in computer security and forensics. He leads
-                        technical development, from API design to deployment pipelines, ensuring every system is secure,
-                        scalable, and maintainable. He built Unity Bridge because he saw how fragmented systems create
-                        security holes and wasted effort.</p>
-                    <div class="team-social"><a href="https://www.linkedin.com/in/dylan-kibet-40ab96334/"
-                            target="_blank"><i class="fab fa-linkedin"></i></a><a
-                            href="https://github.com/systems-jackal" target="_blank"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                <div class="team-card">
-                    <i class="fas fa-check-double"></i>
-                    <h3>Ezra Tomno</h3>
-                    <h4>CO‑FOUNDER</h4>
-                    <div class="team-role">Frontend Engineer & Quality Lead</div>
-                    <div class="team-spec">Frontend · API integration · Testing · Quality</div>
-                    <p class="team-bio">Ezra builds the user‑facing part of every system and leads quality assurance. He
-                        implements responsive, accessible interfaces and ensures they integrate seamlessly with the
-                        backend. Ezra has the final say on quality – nothing ships unless it meets his standards.</p>
-                    <div class="team-social"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i
-                                class="fab fa-github"></i></a></div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="container reveal">
-            <div class="contact-grid">
-                <div class="contact-info">
-                    <h2>Ready to stop juggling?<br><span style="color:#3B82F6;">Let’s connect</span> your systems.</h2>
-                    <p>Whether you need a full digital ecosystem or just one piece to integrate with the rest, we’re
-                        here to help. No jargon, no sales pressure — just honest conversations about making your
-                        technology work for you.</p>
-                    <div class="contact-details">
-                        <div class="contact-detail"><i class="fas fa-envelope"></i>
-                            <div><span class="detail-label">Email</span> <a href="mailto:hello@unitybridge.dev"
-                                    style="color:#3B82F6;">hello@unitybridge.dev</a></div>
-                        </div>
-                        <div class="contact-detail"><i class="fas fa-map-marker-alt"></i>
-                            <div><span class="detail-label">Based in</span> Kenya 🇰🇪 — Serving globally</div>
-                        </div>
-                        <div class="contact-detail"><i class="fas fa-clock"></i>
-                            <div><span class="detail-label">Response time</span> Within 24 hours</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-form-wrap">
-                    <form id="contact-form" action="#" method="post">
-                        <div class="form-row">
-                            <div class="form-group"><label for="name">Your Name</label><input type="text" id="name"
-                                    name="name" placeholder="Your name" required></div>
-                            <div class="form-group"><label for="email">Email Address</label><input type="email"
-                                    id="email" name="email" placeholder="you@example.com" required></div>
-                        </div>
-                        <div class="form-group"><label for="service">Service Interest</label><select id="service"
-                                name="service">
-                                <option disabled selected>Select a service...</option>
-                                <option>Networking & Infrastructure</option>
-                                <option>Cloud Security</option>
-                                <option>Custom Software Development</option>
-                                <option>Mobile & Web Apps</option>
-                                <option>Ready-Made Solutions</option>
-                                <option>Security Audits</option>
-                                <option>Threat Intelligence</option>
-                                <option>Incident Response</option>
-                            </select></div>
-                        <div class="form-group"><label for="message">Tell Us About Your Project</label><textarea
-                                id="message" name="message" rows="4"
-                                placeholder="Describe your project, challenges, or questions..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-full"><i class="fas fa-paper-plane"></i> Send
-                            Message</button>
-                        <p class="privacy-note"><i class="fas fa-lock"></i> Your data is private and never shared.</p>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-        <div class="container newsletter reveal">
-            <h2>Join Our Newsletter</h2>
-            <p>Get the latest insights on digital ecosystems, security trends, and early access to new solutions.</p>
-            <form action="#" method="post"><input type="text" placeholder="Your name" required><input type="email"
-                    placeholder="Email address" required><button type="submit"
-                    class="btn btn-primary">Subscribe</button></form>
-        </div>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div>
-                    <div style="font-family:'Fira Code',monospace; font-size:1.3rem; font-weight:600;">UNITY BRIDGE
-                    </div>
-                    <p>Your bridge to a secure unified digital ecosystem.</p>
-                </div>
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#why">Why Us</a></li>
-                        <li><a href="#team">Team</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="#">Terms of Service</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div class="footer-social">
-                    <h4>Connect</h4>
-                    <div class="social-icons"><a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a><a
-                            href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a><a href="#"
-                            aria-label="GitHub"><i class="fab fa-github"></i></a></div>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2026 Unity Bridge. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <div class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
+    <div class="back-to-start" id="backToStart">
+        <i class="fas fa-arrow-left"></i>
     </div>
 
     <script>
-        // Scroll reveal using Intersection Observer
-        const reveals = document.querySelectorAll('.reveal');
+        const scrollContainer = document.getElementById('horizontalScroll');
+        const sections = ['about', 'services', 'why', 'team', 'contact'];
+        const panelIds = {
+            about: 'panel-about',
+            services: 'panel-services',
+            why: 'panel-why',
+            team: 'panel-team',
+            contact: 'panel-contact'
+        };
+
+        function scrollToSection(sectionId) {
+            const panel = document.getElementById(panelIds[sectionId]);
+            if (panel) {
+                panel.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+                updateActiveNav(sectionId);
+            }
+        }
+
+        function updateActiveNav(sectionId) {
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                const linkSection = link.getAttribute('data-section');
+                if (linkSection === sectionId) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        // Attach click handlers to all nav links and buttons
+        document.querySelectorAll('[data-section]').forEach(el => {
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                const section = el.getAttribute('data-section');
+                scrollToSection(section);
+            });
+        });
+        document.getElementById('homeLink')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollToSection('about');
+        });
+        document.getElementById('contactBtn')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollToSection('contact');
+        });
+        document.getElementById('heroWorkBtn')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollToSection('contact');
+        });
+        document.getElementById('heroServicesBtn')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollToSection('services');
+        });
+        document.getElementById('whyContactBtn')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            scrollToSection('contact');
+        });
+
+        // Back to start button
+        const backBtn = document.getElementById('backToStart');
+        backBtn.addEventListener('click', () => {
+            scrollToSection('about');
+        });
+
+        // Update active nav based on scroll position (horizontal)
+        const observerOptions = { threshold: 0.5 };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('active');
+                    const panelId = entry.target.id;
+                    for (let [key, id] of Object.entries(panelIds)) {
+                        if (id === panelId) {
+                            updateActiveNav(key);
+                            break;
+                        }
+                    }
                 }
             });
-        }, { threshold: 0.1, rootMargin: '0px' });
-        reveals.forEach(el => observer.observe(el));
-
-        // Back to top button
-        const backToTop = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) backToTop.classList.add('show');
-            else backToTop.classList.remove('show');
+        }, observerOptions);
+        Object.values(panelIds).forEach(id => {
+            const panel = document.getElementById(id);
+            if (panel) observer.observe(panel);
         });
-        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Show back button when not on first panel
+        scrollContainer.addEventListener('scroll', () => {
+            const scrollPos = scrollContainer.scrollLeft;
+            if (scrollPos > 100) {
+                backBtn.classList.add('show');
+            } else {
+                backBtn.classList.remove('show');
+            }
+        });
     </script>
 </body>
 
