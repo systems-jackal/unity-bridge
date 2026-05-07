@@ -358,80 +358,6 @@
             color: #B0C4B5;
         }
 
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .team-card {
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(4px);
-            border-radius: 28px;
-            padding: 32px 24px;
-            border: 1px solid rgba(59, 130, 246, 0.2);
-        }
-
-        .team-card:hover {
-            border-color: #3B82F6;
-            transform: translateY(-4px);
-        }
-
-        .team-card i {
-            font-size: 2rem;
-            color: #3B82F6;
-            margin-bottom: 16px;
-        }
-
-        .team-card h3 {
-            font-size: 1.6rem;
-            margin-bottom: 4px;
-            font-family: 'Exo 2', sans-serif;
-            color: #FFFFFF;
-        }
-
-        .team-card h4 {
-            color: #3B82F6;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-        }
-
-        .team-role {
-            font-weight: 700;
-            margin: 12px 0 8px;
-            color: #FFFFFF;
-        }
-
-        .team-spec {
-            font-size: 0.85rem;
-            color: #3B82F6;
-            margin-bottom: 16px;
-        }
-
-        .team-bio {
-            font-size: 0.9rem;
-            color: #B0C4B5;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .team-social {
-            display: flex;
-            gap: 12px;
-        }
-
-        .team-social a {
-            color: #B0C4B5;
-            font-size: 1.2rem;
-            transition: 0.2s;
-        }
-
-        .team-social a:hover {
-            color: #3B82F6;
-        }
-
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1.4fr;
@@ -667,11 +593,10 @@
             transform: translateY(-3px);
         }
 
-        /* ========== MOBILE RESPONSIVENESS (phones) ========== */
+        /* ========== MOBILE RESPONSIVENESS ========== */
         @media (max-width: 768px) {
             .panel {
                 padding: 110px 0 40px;
-                /* extra top padding to avoid fixed header */
             }
 
             .hero h1 {
@@ -689,7 +614,6 @@
 
             .about-grid,
             .services-grid,
-            .team-grid,
             .why-grid,
             .contact-grid,
             .footer-grid {
@@ -739,28 +663,18 @@
             }
 
             .service-card,
-            .about-card,
-            .team-card {
+            .about-card {
                 padding: 24px 16px;
             }
 
             .service-card i,
-            .about-card i,
-            .team-card i {
+            .about-card i {
                 font-size: 2rem;
             }
 
             .service-card h3,
             .about-card h3 {
                 font-size: 1.2rem;
-            }
-
-            .team-card h3 {
-                font-size: 1.4rem;
-            }
-
-            .team-bio {
-                font-size: 0.85rem;
             }
 
             .btn-primary,
@@ -802,12 +716,6 @@
                 font-size: 0.9rem;
             }
 
-            .service-card p,
-            .about-card p,
-            .team-bio {
-                font-size: 0.85rem;
-            }
-
             .contact-info h2 {
                 font-size: 1.6rem;
             }
@@ -832,7 +740,6 @@
                     <li><a data-section="about">About</a></li>
                     <li><a data-section="services">Services</a></li>
                     <li><a data-section="why">Why Us</a></li>
-                    <li><a data-section="team">Team</a></li>
                     <li><a data-section="contact">Contact</a></li>
                 </ul>
                 <a href="#" class="btn-primary" id="contactBtn">Work with us</a>
@@ -971,59 +878,7 @@
             </div>
         </section>
 
-        <!-- Panel 4: Team -->
-        <section class="panel" id="panel-team">
-            <div class="container">
-                <h2 class="section-title">Meet the Team</h2>
-                <p style="text-align: center; margin-bottom: 40px;">Three specialists who saw the same problem and
-                    decided to fix it together.</p>
-                <div class="team-grid">
-                    <div class="team-card">
-                        <i class="fas fa-clipboard-list"></i>
-                        <h3>Bernard Korir</h3>
-                        <h4>CO‑FOUNDER</h4>
-                        <div class="team-role">Product & Requirements Engineer</div>
-                        <div class="team-spec">Requirements · User stories · Backlog · Product logic</div>
-                        <p class="team-bio">Bernard ensures we always build the right thing. He translates client needs
-                            into clear user stories, acceptance criteria, and product specifications. His structured
-                            approach eliminates guesswork, keeps development focused, and guarantees that every feature
-                            delivers real value.</p>
-                        <div class="team-social"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i
-                                    class="fab fa-github"></i></a></div>
-                    </div>
-                    <div class="team-card">
-                        <i class="fas fa-user-shield"></i>
-                        <h3>Dylan Kibet</h3>
-                        <h4>FOUNDER</h4>
-                        <div class="team-role">Lead Engineer & System Architect</div>
-                        <div class="team-spec">System architecture · Backend · Security · Infrastructure</div>
-                        <p class="team-bio">Dylan brings deep expertise in computer security and forensics. He leads
-                            technical development, from API design to deployment pipelines, ensuring every system is
-                            secure, scalable, and maintainable. He built Unity Bridge because he saw how fragmented
-                            systems create security holes and wasted effort.</p>
-                        <div class="team-social"><a href="https://www.linkedin.com/in/dylan-kibet-40ab96334/"
-                                target="_blank"><i class="fab fa-linkedin"></i></a><a
-                                href="https://github.com/systems-jackal" target="_blank"><i
-                                    class="fab fa-github"></i></a></div>
-                    </div>
-                    <div class="team-card">
-                        <i class="fas fa-check-double"></i>
-                        <h3>Ezra Tomno</h3>
-                        <h4>CO‑FOUNDER</h4>
-                        <div class="team-role">Frontend Engineer & Quality Lead</div>
-                        <div class="team-spec">Frontend · API integration · Testing · Quality</div>
-                        <p class="team-bio">Ezra builds the user‑facing part of every system and leads quality
-                            assurance. He implements responsive, accessible interfaces and ensures they integrate
-                            seamlessly with the backend. Ezra has the final say on quality – nothing ships unless it
-                            meets his standards.</p>
-                        <div class="team-social"><a href="#"><i class="fab fa-linkedin"></i></a><a href="#"><i
-                                    class="fab fa-github"></i></a></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Panel 5: Contact + Newsletter + Footer -->
+        <!-- Panel 4: Contact + Newsletter + Footer -->
         <section class="panel" id="panel-contact">
             <div class="container">
                 <div class="contact-grid">
@@ -1098,7 +953,6 @@
                                 <li><a href="#" data-section="about">About</a></li>
                                 <li><a href="#" data-section="services">Services</a></li>
                                 <li><a href="#" data-section="why">Why Us</a></li>
-                                <li><a href="#" data-section="team">Team</a></li>
                                 <li><a href="#" data-section="contact">Contact</a></li>
                             </ul>
                         </div>
@@ -1131,12 +985,11 @@
 
     <script>
         const scrollContainer = document.getElementById('horizontalScroll');
-        const sections = ['about', 'services', 'why', 'team', 'contact'];
+        const sections = ['about', 'services', 'why', 'contact'];
         const panelIds = {
             about: 'panel-about',
             services: 'panel-services',
             why: 'panel-why',
-            team: 'panel-team',
             contact: 'panel-contact'
         };
 
